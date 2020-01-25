@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <meta name="author" content="Manuel Sánchez Pinar" />
+    <script src="js/jquery.js"></script>
+    <title>Manuel SP - Resume</title>
+        <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+<![endif]-->
+</head>
+<body>
+    <div id="top">
+        <a href="#" onclick="loades()"><img src="img/es.png" alt="Spanish"></a>
+        <a href="#" onclick="loaden()"><img src="img/en.png" alt="English"></a>
+    </div>
+    <div id="content">
+    </br>
+</div>
+<script>
+    function loades() {
+        $( "#content" ).load('https://aorith.github.io/index-es.html');
+    }
+    function loaden() {
+        $( "#content" ).load('https://aorith.github.io/index-en.html');
+    }
+    $(document).ready(function() {
+      if (location.hash == '') {
+          loades();
+      }
+  });
+</script>
+</body>
+</html>
+
