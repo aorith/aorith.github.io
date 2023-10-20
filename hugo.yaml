@@ -1,0 +1,30 @@
+baseURL: "https://aorith.github.io"
+languageCode: "en"
+title: "aorith"
+author: "Manuel Sanchez Pinar"
+theme: "mine"
+#googleAnalyticsID: "G-00000XXXXX"
+
+params:
+  sitename: "aorith's blog"
+  description: "aorith's blog"
+  keywords: [Blog]
+  dateform: "January 2, 2006"
+
+markup:
+  highlight:
+    codeFences: true
+    lineNos: false
+    noClasses: false
+
+menu:
+  main:
+    - name: Tags
+      url: /tags/
+      weight: 10
+    - name: Resume
+      url: /resume/
+      weight: 20
+    - name: About
+      url: /about/
+      weight: 30

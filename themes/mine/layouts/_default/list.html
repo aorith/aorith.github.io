@@ -1,0 +1,17 @@
+{{ define "main" }}
+    <h2>#{{ .Title }}</h2>
+
+    <ul class="posts_listing">
+        {{ range .Pages }}
+            <li>
+                <h3><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h3>
+                <div class=date>
+                    {{if not .Date.IsZero }}
+                        {{ .Date.Format (.Site.Params.dateform | default "January 2006") }}
+                    {{end}}
+                </div>
+            </li>
+        {{ end }}
+    </ul>
+{{ end }}
+

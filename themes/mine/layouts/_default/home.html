@@ -1,0 +1,15 @@
+{{ define "main" }}
+    {{ .Content }}
+    <ul class=posts_listing>
+        {{ range (where .Site.RegularPages "Type" "in" "posts").ByDate }}
+            <li>
+                <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+                <div class=date>
+                    {{if not .Date.IsZero }}
+                        {{ .Date.Format (.Site.Params.dateform | default "January 2006") }}
+                    {{end}}
+                </div>
+            </li>
+        {{ end }}
+    </ul>
+{{ end }}

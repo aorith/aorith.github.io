@@ -1,0 +1,283 @@
+* {
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  text-decoration-skip: ink;
+  color: var(--fg1);
+}
+
+body {
+  font-family:
+    fira sans,
+    sans-serif;
+  max-width: 700px;
+  margin: auto;
+  background-color: var(--bg0);
+  color: var(--fg0);
+  padding: 3px;
+  line-height: 160%;
+}
+
+p {
+  margin: 10px 0;
+}
+
+pre,
+code {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 0.9em;
+}
+
+pre {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  word-wrap: normal;
+  padding: 16px;
+  overflow: auto;
+  line-height: 1.45;
+  padding: 1em;
+  border-left: 4px solid var(--link);
+}
+
+pre > code {
+  padding: 0;
+  margin: 0;
+  word-break: normal;
+  white-space: pre;
+  border: 0;
+}
+
+pre code {
+  display: inline;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  border: 0;
+}
+
+pre code::before,
+pre code::after {
+  content: normal;
+}
+
+p code {
+  background-color: var(--bg2);
+  padding: 3px;
+}
+
+em,
+dfn {
+  font-style: italic;
+}
+
+.mono,
+pre,
+code,
+p code,
+li code {
+  font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New",
+    monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Old Standard TT", serif;
+  font-weight: bolder;
+}
+
+p {
+  margin-top: 1.2em;
+  margin-bottom: 1.4em;
+}
+
+h1 {
+  font-size: 1.8em;
+}
+h2 {
+  font-size: 1.6em;
+}
+h3 {
+  font-size: 1.4em;
+}
+h4 {
+  font-size: 1.2em;
+}
+h5 {
+  font-size: 1em;
+}
+
+blockquote {
+  font-family: "Old Standard TT", serif;
+  text-align: center;
+  padding: 50px;
+}
+
+blockquote p {
+  display: inline-block;
+  font-style: italic;
+}
+
+blockquote:before,
+blockquote:after {
+  font-family: "Old Standard TT", serif;
+  content: "\201C";
+  color: var(--fg1);
+}
+
+blockquote:after {
+  content: "\201D";
+}
+
+hr {
+  width: 100%;
+  height: 1px;
+  margin: 2em auto;
+  background: var(--hr);
+}
+
+h1 a,
+h2 a,
+h3 a {
+  text-decoration: none;
+}
+
+.date,
+#sub-header {
+  font-size: 0.9em;
+  font-weight: 500;
+  font-style: italic;
+  margin: 0 8px;
+  color: var(--grey);
+}
+
+#nav h1 a {
+  line-height: 120%;
+}
+
+.posts_listing a,
+#nav a {
+  text-decoration: none;
+}
+
+li {
+  margin-left: 20px;
+}
+
+ul li {
+  line-height: 160%;
+  margin-left: 10px;
+  list-style-type: none;
+  &:before {
+    padding-right: 1px;
+    font-weight: 700;
+    content: "\2022 \0020";
+  }
+}
+
+#nav ul li:before,
+.posts_listing li:before {
+  content: "";
+  margin-right: 0;
+}
+
+#content {
+  margin-top: 1.1em;
+  text-align: left;
+  width: 100%;
+  padding: 1em 0 1.5em;
+}
+
+.posts_listing li a:hover,
+#nav a:hover {
+  text-decoration: underline;
+}
+
+#nav {
+  text-align: left;
+  margin-top: 1.5em;
+}
+
+#nav li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 0 0.5em;
+}
+
+ul.posts_listing a,
+#links a,
+#nav a,
+#nav h1 a {
+  color: var(--fg1);
+}
+
+a {
+  color: var(--link);
+  &:hover {
+    color: var(--link2);
+  }
+}
+
+#links {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 0 0 0;
+}
+
+#links :nth-child(1) {
+  margin-right: 0.5em;
+}
+
+#links :nth-child(2) {
+  margin-left: 0.5em;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.logo {
+  color: var(--fg0);
+
+  & div {
+    display: inline;
+  }
+
+  & .logo__text {
+    font-size: 1em;
+    font-weight: 700;
+  }
+
+  & .logo__cursor,
+  & .logo__prompt {
+    font-family: monospace;
+    font-size: 1em;
+    font-weight: normal;
+  }
+
+  &:hover .logo__cursor {
+    animation: 1s blink infinite;
+    opacity: 1;
+  }
+  & .logo__cursor {
+    margin-right: 0.5rem;
+  }
+}
+
+a.logo:hover {
+  text-decoration: none !important;
+}
+
+#links a {
+  font-size: 1.4em;
+}

@@ -1,0 +1,147 @@
+
+
+Manuel Sánchez Pinar
+
+------------------------------------------------------------------------
+
+  DevOps Engineer / SysAdmin
+
+  SysAdmin evolucionado a DevOps al que le gusta el desarrollo.
+  Me gusta aprender nuevas tecnologías, programar en Python, Go, scripts
+  de shell, etc., y diseñar soluciones en contenedores.
+  Últimamente tengo interés en todo lo relacionado con Nix/NixOS y los
+  sistemas inmutables.
+
+------------------------------------------------------------------------
+
+Experience
+
+2020-now
+
+    DevOps & SysAdmin — Transparent Edge
+
+    -   Implementación de sistemas CI/CD.
+    -   Desarrollo de aplicaciones y scripts en Python para mejorar o
+        incorporar nuevas funcionalidades a la CDN.
+    -   Desarrollo de playbooks en Ansible y despliegues en la
+        plataforma.
+    -   Desarrollo y mantenimiento del provider de Terraform de
+        Transparent Edge.
+    -   Migración de servicios a contenedores, desde la generación de
+        los Containerfile/Dockerfile necesarios hasta el sistema CI/CD.
+    -   Evolución, mantenimiento y arquitectura de los distintos
+        componentes de la infraestructura, la gran mayoría bajo sistemas
+        Debian.
+    -   Gestión de tareas diarias en la CDN: VCL (Varnish Configuration
+        Language), DNS, configuración de cacheo de sitios web, solución
+        a los problemas de configuración de los clientes, etc.
+    -   Otros: Git, Nagios, ELK, Nginx + Openresty (Lua), Grafana, …
+
+2018-2020
+
+    Middleware Operations Engineer — DXC Technology
+
+    -   Despliegues en UNIX/Wintel sobre diversas tecnologías middleware
+        (Websphere, Tomcat, Weblogic…), tanto de forma manual como
+        utilizando herramientas CI/CD tales como Jenkins, Bamboo o
+        Ansible.
+    -   Resolución de los posibles problemas ocasionados durante los
+        despliegues.
+    -   Gestión de certificados.
+    -   Tareas operacionales como DBA en MS-SQL, Oracle y DB2.
+        (Backups/Restores, TSM, SQL-Scrips, Exports, HA, …)
+
+2017-2018
+
+    Middleware & App Integration Engineer — Capgemini (Roche Pharma)
+
+    -   Parte del equipo AIM (Application Integration & Middleware
+        Operations)
+    -   Despliegues y resolución de incidencias sobre las siguientes
+        aplicaciones:
+        -   RH Jboss, TIBCO, ApiGW, WebMethods, Sterling Integrator
+        -   Tableau, Cloudera (Hadoop, Spark, HBase…) e Informatica
+            Powercenter.
+
+2015-2017
+
+    Técnico N2 — Capgemini (Telefónica)
+
+    -   Resolución de incidencias técnicas y soporte mediante
+        monitorización y matenimiento de distintos aplicativos
+        implementados en sistemas UNIX (AIX, Solaris, HP-UX…) y
+        GNU/Linux (RHEL) que implementan tecnologı́as middleware como
+        Tuxedo y otras soluciones transaccionales.
+    -   Apoyo en la monitorización mediante elaboración y mantenimiento
+        de shell scripts que analizan los logs de los aplicativos.
+    -   Gestión de cargas de procesos batch en Control-M.
+    -   Confección de reportes, informes y comunicación con el cliente.
+
+2015
+
+    Soporte técnico — Capgemini
+
+    -   Citrix, Wintel, Active Directory y aplicaciones del cliente.
+        Resolución de incidencias en remoto.
+
+Certifications & Education
+
+2020
+    AWS Certified Solutions Architect - Associate
+
+2019
+    LPIC-2 (Linux Engineer)
+
+2019
+    LPIC-1 (Linux Administrator)
+
+2017
+    Red Hat Certified System Administrator (RHCSA)
+
+2015
+    ITIL Foundation Certificate in IT Service Management
+
+2015
+    B2 First (FCE ”First Certificate in English”) - Cambridge
+
+2012-2014
+    Técnico Superior en Administración de Sistemas Informáticos en Red
+    en IES IZPISÚA BELMONTE, HELLÍN → Finalizado con Matrícula de Honor
+
+Skills
+
+Muchos de los proyectos que he realizado, son privados (asociados a una
+empresa).
+Aquí adjunto algunos enlaces de pequeños proyectos y repositorios
+personales.
+
+★★★
+
+    -   GNU/Linux (Debian/Ubuntu, RedHat/CentOs, NixOS)
+    -   Shell scripting [ dotfiles ]
+    -   Containers, Docker, Podman [ containers ]
+    -   Python [ cidr-listings ]
+    -   Nginx
+    -   Ansible
+    -   Varnish
+    -   Git
+
+★★
+
+    -   Terraform [ Provider for Transparent Edge ]
+    -   AWS
+    -   Apache
+    -   LXC
+    -   Filesystems management (NAS, NFS, Samba/CIFS)
+
+★
+
+    -   Nix [ NixOS nspawn containers | Neovim Flake ]
+    -   Kubernetes
+    -   Go [ Terraform Provider for Transparent Edge ]
+    -   PostgreSQL
+
+------------------------------------------------------------------------
+
+  [ github.com/aorith ] • [ aomanu@gmail.com ] • [ 600 271 609 ]
+  Gijón. Asturias, España

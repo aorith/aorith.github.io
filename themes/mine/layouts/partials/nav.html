@@ -1,0 +1,15 @@
+<nav id=nav>
+    <ul>
+        <li>
+            <a class="logo" href="/">
+                <div class="logo__prompt">&dollar;</div>
+                <div class="logo__cursor">█</div>
+                <div class="logo__text">{{ .Site.Params.sitename }}</div>
+            </a>
+        </li>
+        {{ range .Site.Menus.main }}
+            <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{ end }}
+    </ul>
+</nav>
+
