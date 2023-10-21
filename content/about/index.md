@@ -23,10 +23,3 @@ In the fast-paced tech world, one thing remains constant: the need to keep learn
 ### Free Time
 
 Besides technology, I'm all about hiking and outdoor adventures, finding solace in nature. Back home, I like to play Metroidvania games and watch a good movie.
-
-### Contact
-
-You can reach me in the following links:
-
-- [github](https://github.com/aorith)
-- [linkedin](https://www.linkedin.com/in/manusp/)

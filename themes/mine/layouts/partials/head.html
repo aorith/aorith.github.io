@@ -28,8 +28,10 @@
 {{ end -}}
 
 {{ $css_bundle := slice
-    (resources.Get "css/colors.css")
+    (resources.Get "css/vars.css")
     (resources.Get "css/main.css")
+    (resources.Get "css/top.css")
+    (resources.Get "css/bot.css")
     (resources.Get "css/dark.css")
     (resources.Get "css/light.css")
   | resources.Concat "css/custom.css" | minify | fingerprint }}

@@ -1,15 +1,29 @@
-<nav id=nav>
-    <ul>
-        <li>
-            <a class="logo" href="/">
-                <div class="logo__prompt">&dollar;</div>
-                <div class="logo__cursor">█</div>
-                <div class="logo__text">{{ .Site.Params.sitename }}</div>
-            </a>
-        </li>
-        {{ range .Site.Menus.main }}
-            <li><a href="{{ .URL }}">{{ .Name }}</a></li>
-        {{ end }}
-    </ul>
-</nav>
+<div id="top">
+    <nav>
+        <ul>
+            <li>
+                <a class="logo" href="/">
+                    <div class="logo__prompt">&dollar;</div>
+                    <div class="logo__cursor">&#x023AF;</div>
+                    <div class="logo__text">{{ .Site.Params.sitename }}</div>
+                </a>
+            </li>
+            {{ range .Site.Menus.main }}
+                <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+            {{ end }}
+        </ul>
+    </nav>
+    <hr />
 
+    <div id="heading">
+        {{ if not .Params.onlycontent }}
+            {{ if .Params.title }} <h1>{{ .Params.title }}</h1> {{ end }}
+
+            {{ if .Params.date }}
+                <time>
+                    {{ .Date.Format (.Site.Params.dateform | default "January 2006") }} · {{ .ReadingTime }} minute read
+                </time>
+            {{ end }}
+        {{ end }}
+    </div>
+</div>

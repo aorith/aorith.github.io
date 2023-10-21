@@ -5,11 +5,11 @@
         {{ range .Pages }}
             <li>
                 <h3><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h3>
-                <div class=date>
+                <time>
                     {{if not .Date.IsZero }}
                         {{ .Date.Format (.Site.Params.dateform | default "January 2006") }}
                     {{end}}
-                </div>
+                </time>
             </li>
         {{ end }}
     </ul>

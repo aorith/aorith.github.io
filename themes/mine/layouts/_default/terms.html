@@ -1,7 +1,7 @@
 {{ define "main" }}
     {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
         <div>
-            <a href="/tags/{{ $name | urlize }}">{{ $name }}</a> ({{ $taxonomy.Count }})
+            <a href="/tags/{{ $name | urlize }}"><span>{{ $name }}<sup>{{ $taxonomy.Count }}</sup></span></a>
         </div>
     {{ end }}
 {{ end }}

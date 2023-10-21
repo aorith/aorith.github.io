@@ -1,0 +1,108 @@
+/* Light Theme */
+:root {
+  --black-0: #000000;
+  --black-1: #595958;
+  --red-0: #a60000;
+  --red-1: #972500;
+  --green-0: #006800;
+  --green-1: #316500;
+  --yellow-0: #6f5500;
+  --yellow-1: #884900;
+  --blue-0: #0031a8;
+  --blue-1: #354fce;
+  --magenta-0: #8f0074;
+  --magenta-1: #531ab5;
+  --cyan-0: #005e8a;
+  --cyan-1: #005f5e;
+  --white-0: #ffffff;
+  --white-1: #f0f0f0;
+  --calm: #61284e;
+  --cold: #093060;
+  --mild: #184033;
+  --warm: #5d3025;
+
+  --link-0: var(--blue-0);
+  --link-1: var(--cyan-0);
+  --linkh-0: var(--blue-1);
+  --linkh-1: var(--cyan-1);
+
+  --inline-0: var(--magenta-0);
+  --inline-1: var(--cyan-0);
+
+  --bg-0: var(--white-0);
+  --bg-1: var(--white-1);
+  --bg-2: #f8f8f7;
+  --fg-0: var(--black-0);
+  --fg-1: var(--black-1);
+}
+
+/* Dark Theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --black-0: #000000;
+    --black-1: #1e1e1d;
+    --red-0: #ff5f58;
+    --red-1: #ff6b54;
+    --green-0: #44bc43;
+    --green-1: #70b900;
+    --yellow-0: #d0bc00;
+    --yellow-1: #fec43e;
+    --blue-0: #2faffe;
+    --blue-1: #79a8fe;
+    --magenta-0: #f78fe6;
+    --magenta-1: #b6a0fe;
+    --cyan-0: #00d3d0;
+    --cyan-1: #6ae4b8;
+    --white-0: #ffffff;
+    --white-1: #989897;
+    --calm: #fbd6f3;
+    --cold: #c6eafe;
+    --mild: #bfebe0;
+    --warm: #f8dec0;
+
+    --bg-0: var(--black-0);
+    --bg-1: var(--black-1);
+    --bg-2: #110b10;
+    --fg-0: var(--white-0);
+    --fg-1: var(--white-1);
+  }
+}
+
+/* Variables */
+:root {
+  --font-family: "Noto Sans", sans-serif;
+  --font-family-mono: Hack, Consolas, Menlo, "DejaVu Sans Mono",
+    "Source Code Pro", monospace;
+  --base-font-size: 20px;
+  --code-font-size: 18px;
+
+  --line-height: 1.44;
+  --heading-line-height: 1.2;
+
+  --vertical-0: calc(var(--line-height) * 1rem);
+  --vertical-1: calc(var(--line-height) * 1.5rem);
+  --vertical-2: calc(var(--line-height) * 2.5rem);
+  --vertical-3: calc(var(--line-height) * 3.5rem);
+
+  --space-0: 0.5rem;
+  --space-1: 1rem;
+  --space-2: 1.5rem;
+  --space-3: 2rem;
+
+  --xxxlsize: 2.1rem;
+  --xxlsize: 1.75rem;
+  --xlsize: 1.45rem;
+  --lsize: 1.2rem;
+  --msize: 1rem;
+  --ssize: 0.9rem;
+  --xssize: 0.8rem;
+  --xxssize: 0.7rem;
+}
+
+/* Mobile and small screens */
+@media only screen and (max-width: 1048px) {
+  :root {
+    --base-font-size: 16px;
+    --code-font-size: 14px;
+  }
+}

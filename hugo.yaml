@@ -1,13 +1,13 @@
 baseURL: "https://aorith.github.io"
 languageCode: "en"
-title: "aorith"
+title: "aorith's site"
 author: "Manuel Sanchez Pinar"
 theme: "mine"
 #googleAnalyticsID: "G-00000XXXXX"
 
 params:
-  sitename: "aorith's blog"
-  description: "aorith's blog"
+  sitename: "aorith's site"
+  description: "aorith's site"
   keywords: [Blog]
   dateform: "January 2, 2006"
 
