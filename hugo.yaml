@@ -3,7 +3,7 @@ languageCode: "en"
 title: "aorith's site"
 author: "Manuel Sanchez Pinar"
 theme: "mine"
-#googleAnalyticsID: "G-00000XXXXX"
+googleAnalytics: G-PWBW9ZCFSD
 
 params:
   sitename: "aorith's site"
