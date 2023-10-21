@@ -1,5 +1,4 @@
 {{ define "main" }}
-    {{ .Content }}
     <ul class=posts_listing>
         {{ range (where .Site.RegularPages "Type" "in" "posts").ByDate }}
             <li>

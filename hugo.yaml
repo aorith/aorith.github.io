@@ -4,6 +4,10 @@ title: "aorith's site"
 author: "Manuel Sanchez Pinar"
 theme: "mine"
 googleAnalytics: G-PWBW9ZCFSD
+enableRobotsTXT: true
+
+taxonomies:
+  tag: tags
 
 params:
   sitename: "aorith's site"
