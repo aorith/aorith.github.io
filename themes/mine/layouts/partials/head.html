@@ -11,21 +11,14 @@
 {{ end -}}
 
 {{ with .OutputFormats.Get "rss" -}}
-    {{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
+    {{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .RelPermalink site.Title | safeHTML }}
 {{ end }}
 
-<title>
-    {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
-    {{ if eq $url "/" }}
-        {{ .Site.Title }}
-    {{ else }}
-        {{ if .Params.heading }} {{ .Params.heading }} {{ else }} {{ .Title }} {{ end }}
-        {{ end }}
-</title>
+<title>{{ $url := replace .RelPermalink ( printf "%s" .Site.BaseURL) "" }}{{ if eq $url "/" }}{{ .Site.Title }}{{ else }}{{ if .Params.heading }} {{ .Params.heading }} {{ else }} {{ .Title }} {{ end }}{{ end }}</title>
 <link rel="canonical" href="{{ .Permalink }}">
 
 {{ range .AlternativeOutputFormats -}}
-    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
 {{ end -}}
 
 {{ $css_bundle := slice
