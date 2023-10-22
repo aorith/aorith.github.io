@@ -1,6 +1,6 @@
 {{ define "main" }}
     <ul class="posts_listing">
-        {{ range (.Pages).ByDate }}
+        {{ range (.Pages).ByDate.Reverse }}
             <li>
                 <time>
                     {{if not .Date.IsZero }}

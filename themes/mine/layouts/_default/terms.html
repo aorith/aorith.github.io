@@ -1,7 +1,9 @@
 {{ define "main" }}
-    {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
-        <div>
-            <a href="/tags/{{ $name | urlize }}"><span>{{ $name }}<sup>{{ $taxonomy.Count }}</sup></span></a>
-        </div>
-    {{ end }}
+    <div id="tags_list">
+        {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+            <div class="tag_list">
+                <a href="/tags/{{ $name | urlize }}">{{ $name }}</a><sup>{{ $taxonomy.Count }}</sup>
+            </div>
+        {{ end }}
+    </div>
 {{ end }}

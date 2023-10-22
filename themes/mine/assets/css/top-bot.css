@@ -1,0 +1,148 @@
+nav ul,
+nav li {
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 0 var(--space-0);
+}
+
+nav ul li a {
+  padding: var(--space-0);
+}
+
+.logo {
+  color: var(--fg-0);
+
+  & div {
+    display: inline;
+  }
+
+  & .logo__text {
+    font-weight: 700;
+  }
+
+  & .logo__cursor,
+  & .logo__prompt {
+    font-family: var(--font-family-mono);
+  }
+
+  &:hover .logo__cursor {
+    animation: 1s blink infinite;
+    opacity: 1;
+  }
+  & .logo__cursor {
+    margin-right: var(--space-0);
+    font-weight: 700;
+  }
+}
+
+#heading {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  padding-top: calc(var(--vertical-0) * 0.5);
+  padding-bottom: var(--vertical-0);
+}
+
+#top {
+  text-align: center;
+  font-size: var(--base-font-size);
+}
+
+#top nav a {
+  text-decoration: none;
+  color: var(--fg-0);
+
+  &:visited {
+    color: var(--fg-0);
+  }
+
+  &:focus,
+  &:hover {
+    background-color: var(--fg-0);
+    color: var(--bg-0);
+  }
+
+  &:visibled:focus,
+  &:visibled:hover {
+    background-color: var(--fg-0);
+    color: var(--bg-0);
+  }
+}
+
+#top nav a.active {
+  &:before {
+    content: "~ ";
+  }
+  &:after {
+    content: " ~";
+  }
+}
+
+div.social {
+  padding-top: calc(var(--space-0) * 0.75);
+}
+
+div.social a {
+  text-decoration: none;
+  color: var(--fg-0);
+  padding-left: calc(var(--space-0) * 0.6);
+  padding-right: calc(var(--space-0) * 0.6);
+
+  &:visited {
+    color: var(--fg-0);
+    background-color: var(--bg-0);
+  }
+
+  &:focus,
+  &:hover {
+    color: var(--fg-0);
+    background-color: var(--bg-0);
+  }
+
+  &:visibled:focus,
+  &:visibled:hover {
+    color: var(--fg-0);
+    background-color: var(--bg-0);
+  }
+}
+
+#top,
+#bot {
+  background-color: var(--bg-2);
+  margin: 0;
+  padding: 0;
+  padding-top: var(--vertical-0);
+  padding-bottom: var(--vertical-0);
+  width: 100%;
+}
+
+#bot {
+  font-size: calc(var(--base-font-size) * 0.75);
+  text-align: center;
+}
+
+/* Mobile and small screens */
+@media only screen and (max-width: 1048px) {
+  nav ul {
+    display: grid;
+    grid-auto-columns: auto;
+    grid-template-areas: "a";
+    justify-content: center;
+    text-align: center;
+    gap: var(--space-0);
+  }
+  nav ul li {
+    display: inline-block;
+  }
+
+  #top,
+  #bot {
+    padding-top: calc(var(--vertical-0) * 0.5);
+    padding-bottom: calc(var(--vertical-0) * 0.5);
+  }
+}

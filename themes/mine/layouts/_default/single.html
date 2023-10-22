@@ -1,7 +1,5 @@
 {{ define "main" }}
-    <div class="entry-content">
-        {{ .Content }}
-    </div>
+    {{ .Content }}
 
     {{ if not .Params.onlycontent }}
         <hr />
@@ -13,5 +11,11 @@
                 <a href="{{.NextInSection.RelPermalink}}">{{.NextInSection.Title}}&nbsp;&raquo;</a>
             {{ end }}
         </div>
+
+        <hr />
+        <div class="for-disqus">
+            {{ template "_internal/disqus.html" . }}
+        </div>
+        <p>&nbsp;</p>
     {{ end }}
 {{ end }}

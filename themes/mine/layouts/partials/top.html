@@ -1,3 +1,4 @@
+
 <div id="top">
     <nav>
         <ul>
@@ -9,21 +10,30 @@
                 </a>
             </li>
             {{ range .Site.Menus.main }}
-                <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+                {{ $active := eq $.RelPermalink (.URL | relLangURL) }}
+                {{ $active := or $active (eq $.Section (lower .Name)) }}
+                <li><a href="{{ .URL }}"{{ if $active }} class="active"{{ end }}>{{ .Name }}</a></li>
             {{ end }}
         </ul>
     </nav>
-    <hr />
+</div>
 
-    <div id="heading">
-        {{ if not .Params.onlycontent }}
-            {{ if .Params.title }} <h1>{{ .Params.title }}</h1> {{ end }}
+{{ if eq .Type . "tags" }}
+    {{ if .Params.title }}
+        <div class="align-center">
+            <h6>#{{ .Params.title }}</h6>
+        </div>
+    {{ end }}
+{{ else }}
+    {{ if and (not .Params.onlycontent) .Params.title }}
+        <div id="heading">
+            <h1>{{ .Params.title }}</h1>
 
             {{ if .Params.date }}
                 <time>
                     {{ .Date.Format (.Site.Params.dateform | default "January 2006") }} · {{ .ReadingTime }} minute read
                 </time>
             {{ end }}
-        {{ end }}
-    </div>
-</div>
+        </div>
+    {{ end }}
+{{ end }}

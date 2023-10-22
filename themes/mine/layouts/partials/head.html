@@ -24,13 +24,15 @@
 {{ $css_bundle := slice
     (resources.Get "css/vars.css")
     (resources.Get "css/main.css")
-    (resources.Get "css/top.css")
-    (resources.Get "css/bot.css")
+    (resources.Get "css/top-bot.css")
     (resources.Get "css/dark.css")
     (resources.Get "css/light.css")
   | resources.Concat "css/custom.css" | minify | fingerprint }}
 
 <link type="text/css" rel="stylesheet" href="{{ $css_bundle.RelPermalink }}">
+
+<link type="text/css" rel="stylesheet" href="/fontawesome/css/fontawesome.min.css">
+<link type="text/css" rel="stylesheet" href="/fontawesome/css/brands.css">
 
 {{- with resources.Get "js/main.js" }}
     {{- with . | js.Build }}

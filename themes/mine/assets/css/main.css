@@ -9,17 +9,24 @@ body {
   color: var(--fg-0);
   font-family: var(--font-family);
   line-height: var(--line-height);
-  width: 1024px;
-  margin: 0 auto;
   word-wrap: break-word;
+  margin: 0;
 }
 
 article,
 footer,
 header,
 nav,
+main,
 section {
   display: block;
+}
+
+main#content {
+  width: 1024px;
+  padding: var(--space-0);
+  padding-top: var(--space-2);
+  margin: 0 auto;
 }
 
 hr {
@@ -173,7 +180,7 @@ em {
 
 ul,
 ol {
-  margin: 0 var(--vertical-0);
+  margin: 0 0 var(--vertical-0);
   padding: 0 0 0 var(--vertical-0);
 }
 
@@ -220,10 +227,25 @@ img {
   box-shadow: 0 1px 3px var(--fg-1);
 }
 
-sub,
-sup {
-  font-size: 80%;
-  color: var(--yellow-1);
+#tags_list {
+  display: grid;
+  margin: 0 var(--vertical-0);
+  margin-bottom: var(--vertical-0);
+  padding-top: var(--vertical-0);
+  grid-template-areas: "a a a a";
+  grid-auto-rows: auto;
+  gap: var(--space-0);
+  justify-content: center;
+
+  & .tag_list {
+    padding-left: var(--space-0);
+    padding-right: var(--space-0);
+  }
+
+  & .tag_list sup {
+    padding-left: 2px;
+    color: var(--yellow-1);
+  }
 }
 
 time {
@@ -238,10 +260,9 @@ dt {
 }
 
 #content {
-  margin-top: 1.1em;
-  text-align: left;
-  width: 100%;
-  padding: 1em 0 1.5em;
+  margin: 0 auto;
+  margin-top: var(--space-1);
+  padding: var(--space-1);
 }
 
 @keyframes blink {
@@ -287,6 +308,18 @@ a {
 }
 
 ul.posts_listing {
+  display: grid;
+  grid-template-areas: "a";
+  grid-auto-rows: auto;
+  gap: 1px;
+  justify-content: center;
+
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  margin: var(--space-0);
+  padding: var(--space-0);
+
   list-style-type: none;
   & li time {
     font-style: normal;
@@ -300,12 +333,18 @@ ul.posts_listing {
   }
 }
 
+.align-center {
+  text-align: center;
+}
+
 /* Mobile and small screens */
 @media only screen and (max-width: 1048px) {
-  body {
+  main#content {
+    margin: var(--space-1);
+    padding: calc(var(--space-0) * 0.5);
+    padding-top: var(--space-1);
     width: 95%;
     min-width: 375px;
-    margin: var(--space-1);
   }
 
   blockquote {
@@ -318,6 +357,10 @@ ul.posts_listing {
     padding-left: calc(var(--vertical-0) / 2);
     border-top: 4px solid var(--bg-1);
     border-bottom: 4px solid var(--bg-1);
+  }
+
+  #tags_list {
+    grid-template-areas: "a a";
   }
 
   p + h2,
@@ -336,5 +379,12 @@ ul.posts_listing {
   pre + h3,
   dd + dt {
     margin-top: var(--vertical-0);
+  }
+
+  ul.posts_listing {
+    padding: 0;
+    margin: 0;
+    margin: calc(var(--space-0) * 0.5);
+    padding: calc(var(--space-0) * 0.5);
   }
 }

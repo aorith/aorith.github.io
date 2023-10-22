@@ -1,6 +1,6 @@
 ---
 title: "NixOS containers on foreign distros"
-date: "2023-10-20T20:34:12+15:00"
+date: "2023-10-21"
 tags:
   - systemd
   - nix
@@ -283,4 +283,6 @@ And this snippet showcases the configuration of the NixOS system inside the cont
 
 ## Eliminating the tarball step
 
-The previous approach is excellent for scenarios where you need to import the generated system onto a different system that might not even have Nix installed. It can even enable you to create a self-managed container, allowing for rebuilds within the container with some additional code. However, if the target system already has Nix installed, you can optimize by utilizing the local `/nix/store`, saving both time and disk space. I have an example that actually runs my [media-stack](https://github.com/aorith/media-stack) on Fedora Silverblue.
+The previous approach is excellent for scenarios where you need to import the generated system onto a different system that might not even have Nix installed. It can even enable you to create a self-managed container, allowing for rebuilds within the container with some additional code. However, if the target system already has Nix installed, you can optimize by utilizing the local `/nix/store`, saving both time and disk space.
+
+I have an example that actually runs my [media-stack](https://github.com/aorith/media-stack) on Fedora Silverblue.
