@@ -358,11 +358,15 @@ ul.posts_listing {
 
 /* Mobile and small screens */
 @media only screen and (max-width: 1048px) {
+  body {
+    width: 100%;
+  }
+
   main#content {
     margin: var(--space-1);
     padding: calc(var(--space-0) * 0.5);
     padding-top: var(--space-1);
-    width: 95%;
+    width: 92%;
     min-width: 375px;
   }
 
@@ -405,5 +409,9 @@ ul.posts_listing {
     margin: 0;
     margin: calc(var(--space-0) * 0.5);
     padding: calc(var(--space-0) * 0.5);
+  }
+
+  #div.for-disqus {
+    width: 95%;
   }
 }
