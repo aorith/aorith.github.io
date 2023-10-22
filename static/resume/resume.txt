@@ -6,11 +6,14 @@ Manuel Sánchez Pinar
 
   DevOps Engineer / SysAdmin
 
-  SysAdmin evolucionado a DevOps al que le gusta el desarrollo.
-  Me gusta aprender nuevas tecnologías, programar en Python, Go, scripts
-  de shell, etc., y diseñar soluciones en contenedores.
-  Últimamente tengo interés en todo lo relacionado con Nix/NixOS y los
-  sistemas inmutables.
+  He transicionado entre múltiples posiciones a lo largo de mi carrera,
+  lo cual me permite a día de hoy responder ante cualquier desafío
+  técnico.
+  Disfruto aprendiendo, programando, y diseñando soluciones en
+  contenedores.
+  Me encanta automatizar sistemas, la resolución de problemas y todo el
+  proceso que conlleva, desde la documentación e investigación hasta los
+  primeros tests, y ver cómo las piezas van encajando.
 
 ------------------------------------------------------------------------
 
@@ -21,10 +24,10 @@ Experience
     DevOps & SysAdmin — Transparent Edge
 
     -   Implementación de sistemas CI/CD.
+    -   Despliegues y automatización de la plataforma.
     -   Desarrollo de aplicaciones y scripts en Python para mejorar o
         incorporar nuevas funcionalidades a la CDN.
-    -   Desarrollo de playbooks en Ansible y despliegues en la
-        plataforma.
+    -   Desarrollo de playbooks en Ansible.
     -   Desarrollo y mantenimiento del provider de Terraform de
         Transparent Edge.
     -   Migración de servicios a contenedores, desde la generación de
@@ -34,7 +37,8 @@ Experience
         Debian.
     -   Gestión de tareas diarias en la CDN: VCL (Varnish Configuration
         Language), DNS, configuración de cacheo de sitios web, solución
-        a los problemas de configuración de los clientes, etc.
+        a los problemas de configuración de los clientes, documentación,
+        etc.
     -   Otros: Git, Nagios, ELK, Nginx + Openresty (Lua), Grafana, …
 
 2018-2020
@@ -118,9 +122,10 @@ personales.
 ★★★
 
     -   GNU/Linux (Debian/Ubuntu, RedHat/CentOs, NixOS)
-    -   Shell scripting [ dotfiles ]
     -   Containers, Docker, Podman [ containers ]
+    -   Shell scripting [ dotfiles ]
     -   Python [ cidr-listings ]
+    -   GitHub & GitLab - workflows/pipelines
     -   Nginx
     -   Ansible
     -   Varnish
