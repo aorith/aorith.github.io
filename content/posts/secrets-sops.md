@@ -182,4 +182,11 @@ $ strings terraform.tfstate | grep -Eo '"password": ".*"'
 "password": "super-secret-password"
 ```
 
+Or we can use `terraform output`.
+
+```sh
+$ terraform output -raw password
+super-secret-password
+```
+
 With this seamless integration you can use SOPS and `age` together with Terraform to manage your secrets. Always remember not to commit files that contain or might contain sensitive information, such as the Terraform state file or even `.tfvars` files.
