@@ -15,16 +15,16 @@ In the systemd configuration, you can define resource limits for services and un
 ```ini
 [Service]
 # Define a custom slice for these limits to apply
-Slice="mycustom.slice";
+Slice="mycustom.slice"
 
 MemoryAccounting=yes
 MemoryHigh=2G
 MemoryMax=4G
 MemorySwapMax=500M
-CPUAccounting=true;
+CPUAccounting=true
 
 # Weight among units in the same slice
-CPUWeight=50;
+CPUWeight=50
 
 # Maximum percentage; values above 100 indicate multiple cores
 CPUQuota=50%
@@ -38,19 +38,34 @@ To test these resource limits, especially memory limits, you can use the `system
 
 ```sh
 $ cd /tmp
-$ systemd-run --shell --property=PrivateTmp=True --property=Slice=custom.slice --property=MemoryAccounting=true --property=MemoryHigh=50M --property=MemoryMax=100M
+$ systemd-run --shell \
+    --property=PrivateTmp=True \
+    --property=Slice=custom.slice \
+    --property=MemoryAccounting=true \
+    --property=MemoryHigh=50M \
+    --property=MemoryMax=100M
 ```
 
 In older versions of systemd, you would use the following command:
 
 ```sh
-systemd-run --property=PrivateTmp=True --property=Slice=custom.slice --property=MemoryAccounting=true --property=MemoryHigh=50M --property=MemoryMax=100M -t /bin/bash
+systemd-run \
+    --property=PrivateTmp=True \
+    --property=Slice=custom.slice \
+    --property=MemoryAccounting=true \
+    --property=MemoryHigh=50M \
+    --property=MemoryMax=100M \
+    -t /bin/bash
 ```
 
 This command opens a shell where you can run commands to increment memory usage. To check the memory usage of this unit, use the following command:
 
 ```sh
 $ systemd-cgls /custom.slice
+Control group /custom.slice:
+└─run-u101.service (#8362)
+  → user.invocation_id: 264efe4a84b243b3bd4e8b42c533fdb5
+  └─3827 /run/current-system/sw/bin/bash
 ```
 
 This will display the control group hierarchy, showing the unit you created. In this case, it's `run-u101.service`. You can inspect the memory usage by running:
