@@ -1,6 +1,5 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="{{ .Description | default .Site.Params.Description }}">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}" />
@@ -9,10 +8,10 @@
 <meta name="application-name" content="{{ .Title }} | {{ .Site.Title }}" />
 <meta property="og:site_name" content="{{ .Site.Params.sitename }}" />
 
-<meta name="description" content="{{ .Params.description }}" />
-<meta itemprop="description" content="{{ .Params.description }}" />
-<meta property="og:description" content="{{ .Params.description }}" />
-<meta name="twitter:description" content="{{ .Params.description }}" />
+<meta name="description" content="{{ .Description | default .Site.Params.Description }}">
+<meta itemprop="description" content="{{ .Description | default .Site.Params.Description }}" />
+<meta property="og:description" content="{{ .Description | default .Site.Params.Description }}" />
+<meta name="twitter:description" content="{{ .Description | default .Site.Params.Description }}" />
 
 <meta name="robots" content="index,follow" />
 <meta name="googlebot" content="index,follow" />
