@@ -21,6 +21,16 @@ Introducing two powerful tools, [SOPS](https://github.com/getsops/sops) (Secrets
 
 **SOPS** is an editor of encrypted files, it supports AWS KMS, GCP KMS, Azure Key Vault, and more. But hold on a second, weren't we trying to keep our secrets separate from the cloud? Don't worry, SOPS also extends its support to `age` and PGP.
 
+**age** is a secure file encryption tool with its [own format](https://github.com/C2SP/C2SP/blob/main/age.md), it can be used as a CLI or as a Go library and can be extended through plugins. You can even use your existing SSH keys:
+
+```sh
+$ age -R ~/.ssh/id_ed25519.pub config.json > config.json.age
+
+$ age -d -i ~/.ssh/id_ed25519 config.json.age > config.json
+```
+
+Take a look at the [age manpage](https://htmlpreview.github.io/?https://github.com/FiloSottile/age/blob/main/doc/age.1.html) for more examples.
+
 Now, let's explore how to combine the capabilities of both these tools with Terraform.
 
 ## Encryption Key
