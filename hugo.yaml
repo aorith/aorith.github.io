@@ -11,10 +11,12 @@ taxonomies:
   tag: tags
 
 params:
+  author: "Manuel Sanchez Pinar"
   sitename: "aorith's site"
-  description: "aorith's site"
+  description: "Tech-related posts from a DevOps engineer."
   keywords: [Blog]
   dateform: "January 2, 2006"
+  github: "https://github.com/aorith"
 
 markup:
   highlight:
