@@ -1,18 +1,7 @@
 {{ define "main" }}
     <section class="posts_listing">
         {{ range (.Pages).ByDate.Reverse }}
-            <a class="post-link" href="{{ .RelPermalink }}">
-                <div class="title">{{ .Title }}</div>
-                {{if not .Date.IsZero }}
-                    <time datetime="{{ .Date.Format "2006-01-02" }}">
-                        {{ .Date.Format "Jan 02, 2006" }}
-                    </time>
-                {{end}}
-                {{ range (.GetTerms "tags") }}
-                    <span class="tags">#{{ .LinkTitle }}</span>
-                {{ end }}
-            </a>
+            {{ partial "list-item.html" . }}
         {{ end }}
     </section>
 {{ end }}
-

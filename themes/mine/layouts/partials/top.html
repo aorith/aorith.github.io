@@ -1,12 +1,11 @@
-
-<div id="top">
+<header id="top">
     <nav>
         <ul>
             <li>
                 <a class="logo" href="/">
-                    <div class="logo__prompt">&dollar;</div>
-                    <div class="logo__cursor">&#x5F;</div>
-                    <div class="logo__text">{{ .Site.Params.sitename }}</div>
+                    <span class="logo__prompt">&dollar;</span>
+                    <span class="logo__cursor">&#x5F;</span>
+                    <span class="logo__text">{{ .Site.Params.sitename }}</span>
                 </a>
             </li>
             {{ range .Site.Menus.main }}
@@ -16,12 +15,12 @@
             {{ end }}
         </ul>
     </nav>
-</div>
+</header>
 
 {{ if eq .Type . "tags" }}
     {{ if .Params.title }}
         <div class="align-center">
-            <h6>#{{ .Params.title }}</h6>
+            <h5>#{{ .Params.title }}</h5>
         </div>
     {{ end }}
 {{ else }}
