@@ -26,6 +26,7 @@ main#content {
   width: 1024px;
   padding: var(--space-0);
   padding-top: var(--space-2);
+  padding-bottom: var(--space-1);
   margin: 0 auto;
 }
 
@@ -326,7 +327,7 @@ a {
   }
 }
 
-ul.posts_listing {
+section.posts_listing {
   display: grid;
   grid-template-areas: "a";
   grid-auto-rows: auto;
@@ -334,21 +335,49 @@ ul.posts_listing {
   justify-content: center;
 
   text-align: left;
-  padding: 0;
-  margin: 0;
   margin: var(--space-0);
   padding: var(--space-0);
 
-  list-style-type: none;
-  & li time {
+  & a {
+    text-decoration: none;
+    padding: var(--space-0);
+    margin: calc(var(--space-0) * 0.5);
+    border-radius: 10px;
+    color: var(--link-0);
+  }
+  & a:hover,
+  a:focus {
+    background-color: var(--bg-1);
+    color: var(--linkh-0);
+  }
+  & a:visited {
+    color: var(--link-1);
+  }
+  & a:visited:hover,
+  & a:visited:focus {
+    color: var(--linkh-1);
+  }
+
+  & a:hover div.title {
+    text-decoration: underline;
+  }
+
+  & a div.title {
+    font-size: calc(var(--base-font-size) * 1.1);
+  }
+  & a time {
+    font-size: var(--code-font-size);
     font-style: normal;
     padding: 0;
     margin: 0;
     padding-right: var(--space-1);
   }
-  & li a {
+  & a span.tags {
+    font-size: var(--code-font-size);
+    font-style: normal;
     padding: 0;
     margin: 0;
+    color: var(--grey);
   }
 }
 
@@ -366,6 +395,7 @@ ul.posts_listing {
     margin: var(--space-1);
     padding: calc(var(--space-0) * 0.5);
     padding-top: var(--space-1);
+    padding-bottom: var(--space-0);
     width: 92%;
     min-width: 375px;
   }
@@ -404,7 +434,7 @@ ul.posts_listing {
     margin-top: var(--vertical-0);
   }
 
-  ul.posts_listing {
+  section.posts_listing {
     padding: 0;
     margin: 0;
     margin: calc(var(--space-0) * 0.5);
