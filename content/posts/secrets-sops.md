@@ -13,7 +13,7 @@ If there is something that I dislike about the current state of the art of infra
 
 Cloud providers aim to offer a wide range of services, from container registries and DNS to message queues and storage. However, there's one aspect I prefer to keep away from the cloud, and that's secrets management. While it's not always possible to do so, as some applications are tightly integrated with a specific cloud, I try to maintain this separation whenever possible, provided my `$DAYJOB` allows for it of course.
 
-I don't avoid it, some project secrets are better managed in the cloud, but if the project can avoid this vendor lock-in an alternative is always welcome.
+I don't avoid it, some project secrets are better managed in the cloud, but if the project can circumvent this vendor lock-in, an alternative is always welcome.
 
 ## SOPS and age
 
