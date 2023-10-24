@@ -1,35 +1,46 @@
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}" />
-<meta name="twitter:title" content="{{ .Title }} | {{ .Site.Title }}" />
-<meta itemprop="name" content="{{ .Title }} | {{ .Site.Title }}" />
-<meta name="application-name" content="{{ .Title }} | {{ .Site.Title }}" />
-<meta property="og:site_name" content="{{ .Site.Params.sitename }}" />
+{{ $title := printf "%s | %s" (.Title | safeHTMLAttr) (.Site.Title | safeHTMLAttr) }}
+{{ if eq .Title .Site.Title }}
+    {{ $title = (.Title | safeHTMLAttr) }}
+{{ end }}
 
-<meta name="description" content="{{ .Description | default .Site.Params.Description }}">
-<meta itemprop="description" content="{{ .Description | default .Site.Params.Description }}" />
-<meta property="og:description" content="{{ .Description | default .Site.Params.Description }}" />
-<meta name="twitter:description" content="{{ .Description | default .Site.Params.Description }}" />
+<meta name="keywords" content="blog,tech,devops,nixos,terraform,aws,sysadm,debian" />
+<meta property="og:site_name" content="{{ $title }}" />
+<meta property="og:title" content="{{ $title }}" />
+
+{{ if .IsPage }}
+    <title>{{ $title }}</title>
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="{{ .Summary }}" />
+    <meta name="description" content="{{ .Summary }}" />
+    <meta property="article:author" content="{{ .Site.Params.author | safeHTMLAttr }}" />
+    <meta property="article:published_time" content="{{ .Date | safeHTMLAttr }}" />
+{{ else }}
+    <meta property="og:description" content="{{ .Description | default .Site.Params.Description }}" />
+    <meta name="description" content="{{ .Description | default .Site.Params.Description }}" />
+{{ end }}
 
 <meta name="robots" content="index,follow" />
 <meta name="googlebot" content="index,follow" />
+
+<title>{{ $title }}</title>
 
 {{ if hugo.IsProduction -}}
   {{ template "_internal/google_analytics.html" . -}}
 {{ end -}}
 
 {{ with .OutputFormats.Get "rss" -}}
-    {{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .RelPermalink site.Title | safeHTML }}
+    {{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .RelPermalink $title | safeHTML }}
 {{ end }}
 
-<title>{{ $url := replace .RelPermalink ( printf "%s" .Site.BaseURL) "" }}{{ if eq $url "/" }}{{ .Site.Title }}{{ else }}{{ if .Params.heading }} {{ .Params.heading }} {{ else }} {{ .Title }} {{ end }}{{ end }}</title>
 <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 <link rel="canonical" href="{{ .Permalink }}">
 
 {{ range .AlternativeOutputFormats -}}
-    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .RelPermalink $title | safeHTML }}
 {{ end -}}
 
 {{ $css_bundle := slice

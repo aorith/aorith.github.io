@@ -30,7 +30,7 @@
             <h1>{{ .Params.title }}</h1>
 
             {{ if .Params.date }}
-                <time>
+                <time datetime="{{ .Date.Format "2006-01-02" }}">
                     {{ .Date.Format (.Site.Params.dateform | default "January 2006") }} · {{ .ReadingTime }} minute read
                 </time>
             {{ end }}
