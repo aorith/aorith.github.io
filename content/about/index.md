@@ -2,7 +2,7 @@ Hola! I’m Manuel, a Linux enthusiast with a diverse background. I started from
 
 Despite my enthusiasm and knowledge, I faced challenges in securing a more suitable job opportunity. Self-promotion has never been my strong suit.
 
-I even have a screenshot from February 2014 of my former desktop, where I was using [i3wm](https://i3wm.org/). As you can see I was one of the unfortunate individuals who had Bitcoin on [Mt.Gox](https://en.wikipedia.org/wiki/Mt._Gox) back then.
+I even have a screenshot from February 2014 of my former desktop, where I was using [i3wm](https://i3wm.org/). As you can see I was one of the unfortunate individuals who had [Bitcoin](https://es.wikipedia.org/wiki/Bitcoin) on [Mt.Gox](https://en.wikipedia.org/wiki/Mt._Gox) back then.
 
 ![My desktop in February 2014](desktop.png "My desktop in February 2014")
 
@@ -11,7 +11,7 @@ Anyway, my tenure in technical support was relatively brief. I quickly made the 
 Meanwhile, I was already tinkering with programming. I began creating small C programs and a lot of bash scripts, but the real 'aha' moment came when I discovered Python, I love how easily you can manipulate data in Python and its REPL.
 Python became my go-to language for a wide range of tasks, from automating routine processes to crafting intricate data-driven solutions.
 
-As I continued developing my skills, I transitioned from a SysAdmin into a DevOps engineer. One of the pivotal shifts during this phase was my embrace of containerization. I began incorporating containers into my daily workflow using Docker and Podman and used my programming skills to develop CI/CD pipelines to automate all the boring tasks.
+As I continued developing my skills, I transitioned from a SysAdmin into a DevOps engineer. One of the pivotal shifts during this phase was my embrace of containerization. I began incorporating containers into my daily workflow using Docker and Podman and used my programming skills to develop CI/CD pipelines to automate deployments.
 
 I firmly believe that the learning process is a lifelong commitment, especially in the ever-evolving world of technology. To me, being a great engineer means continually expanding my knowledge and skills.
 
