@@ -1,3 +1,9 @@
+---
+title: "About"
+date: 2023-10-20
+onlycontent: true
+---
+
 Hola! I’m Manuel, a Linux enthusiast with a diverse background. I started from the very bottom, as a level 1 technical support. Back then, I was already using Linux, I loved all the freedom it offered, the ability to choose precisely which components were installed, their configuration, and how and when they ran. I liked that everything could be done from a terminal, and the [UNIX philosophy](https://en.wikipedia.org/wiki/Unix_philosophy), where all the pieces fit together.
 
 Despite my enthusiasm and knowledge, I faced challenges in securing a more suitable job opportunity. Self-promotion has never been my strong suit.
