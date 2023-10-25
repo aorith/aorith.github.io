@@ -173,9 +173,9 @@ Outputs:
 password = <sensitive>
 ```
 
-Terraform is smart enough to notice that the output and the **state** will contain sensitive data and takes measures to avoid leaking it.
+Terraform is smart enough to notice that the output and the _state_ contains sensitive data and takes measures to avoid leaking it.
 
-We can peek at the Terraform `state` to confirm that the password really is there.
+We can peek at the Terraform _state_ to confirm that the password really is there.
 
 ```sh
 $ strings terraform.tfstate | grep -Eo '"password": ".*"'
@@ -189,4 +189,4 @@ $ terraform output -raw password
 super-secret-password
 ```
 
-With this seamless integration you can use SOPS and `age` together with Terraform to manage your secrets. Always remember not to commit files that contain or might contain sensitive information, such as the Terraform state file or even `.tfvars` files.
+With this seamless integration you can use SOPS and `age` together with Terraform to manage your secrets. Always remember not to commit files that contain or might contain sensitive information, such as the Terraform _state_ file or even `.tfvars` files.
