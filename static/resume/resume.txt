@@ -23,22 +23,22 @@ Experience
 
     DevOps & SysAdmin — Transparent Edge
 
-    -   Implementación de sistemas CI/CD.
+    -   Implementación de pipelines CI/CD.
     -   Despliegues y automatización de la plataforma.
-    -   Desarrollo de aplicaciones y scripts en Python para mejorar o
-        incorporar nuevas funcionalidades a la CDN.
-    -   Desarrollo de playbooks en Ansible.
-    -   Desarrollo y mantenimiento del provider de Terraform de
-        Transparent Edge.
+    -   Desarrollo de microservicios y scripts en Python para enriquecer
+        y expandir las funcionalidades de la CDN, abarcando tanto
+        entornos bare metal como cloud (AWS).
+    -   Desarrollo del provider de Terraform de Transparent Edge.
+    -   Creación de playbooks utilizando Ansible.
     -   Migración de servicios a contenedores, desde la generación de
-        los Containerfile/Dockerfile necesarios hasta el sistema CI/CD.
+        los Containerfile/Dockerfile necesarios hasta el pipeline CI/CD.
     -   Evolución, mantenimiento y arquitectura de los distintos
         componentes de la infraestructura, la gran mayoría bajo sistemas
         Debian.
     -   Gestión de tareas diarias en la CDN: VCL (Varnish Configuration
         Language), DNS, configuración de cacheo de sitios web, solución
-        a los problemas de configuración de los clientes, documentación,
-        etc.
+        a los problemas de configuración de los clientes, monitorización
+        y optimización, documentación, etc.
     -   Otros: Git, Nagios, ELK, Nginx + Openresty (Lua), Grafana, …
 
 2018-2020
