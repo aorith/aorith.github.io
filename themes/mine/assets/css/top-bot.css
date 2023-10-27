@@ -111,6 +111,14 @@ div.social a {
   }
 }
 
+#bot div#contact {
+  color: var(--fg-1);
+}
+
+abbr {
+  cursor: help;
+}
+
 #top,
 #bot {
   background-color: var(--bg-2);

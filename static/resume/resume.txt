@@ -39,7 +39,8 @@ Experience
         Language), DNS, configuración de cacheo de sitios web, solución
         a los problemas de configuración de los clientes, monitorización
         y optimización, documentación, etc.
-    -   Otros: Git, Nagios, ELK, Nginx + Openresty (Lua), Grafana, …
+    -   Otros: Git, Nagios, ELK, Nginx + Openresty (Lua), Grafana,
+        Kafka, RabbitMQ, …
 
 2018-2020
 
@@ -135,7 +136,8 @@ personales.
 
     -   Terraform [ Provider for Transparent Edge ]
     -   AWS
-    -   Apache
+    -   Kafka
+    -   RabbitMQ
     -   LXC
     -   Filesystems management (NAS, NFS, Samba/CIFS)
 
