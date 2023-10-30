@@ -134,7 +134,7 @@ personales.
 
 ★★
 
-    -   Terraform [ Provider for Transparent Edge ]
+    -   Terraform [ cidr-ecs-rds | Provider for Transparent Edge ]
     -   AWS
     -   Kafka
     -   RabbitMQ
