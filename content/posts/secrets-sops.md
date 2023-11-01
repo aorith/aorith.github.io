@@ -87,8 +87,8 @@ Here's the resulting encrypted file.
 
 ```json
 {
-  "username": "ENC[AES256_GCM,data:+FeM,iv:JYpoOS5rj4mUtlEg5t0B8CdCfJqS41jgY3lLnB1OXww=,tag:fe6zZwWU/d7A81vIISgxeg==,type:str]",
-  "password": "ENC[AES256_GCM,data:B05fVImpohAyOFK3IH5gknaAs4x2,iv:49GuMJ3WWN3PkCUMP96W/oJMNB3Bmt+yisr8v0Mx7ho=,tag:6YaqEsA8uz+MN9tNisXiXw==,type:str]",
+  "username": "ENC[AES256_GCM,data:...,type:str]",
+  "password": "ENC[AES256_GCM,data:...,tag:...,type:str]",
   "sops": {
     "kms": null,
     "gcp_kms": null,
@@ -97,11 +97,11 @@ Here's the resulting encrypted file.
     "age": [
       {
         "recipient": "age1hy5qdudcg4rcqg0s3x07mq53jsep38yjjrl0zkxe73m99w008pkqyh3ct7",
-        "enc": "-----BEGIN AGE ENCRYPTED FILE-----\nYWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBUK0RnMlNzWEZPWTh2RGJN\nQ0JuS1ROLzJxUDlZZ3JxWVVLbG1oT1VuNkdZClpKeEZLd3ZybWNnVXJzOVNGTnJq\nVjZrSUFnY3A5SUVERjc4OGR6d01neFkKLS0tIG54dlVQeFhrbmo1SWpSRlVzZmlu\nLzhObkhnWUh4Z3VIbXFtemlkZ294dEEK0pdtl7corDpekmpH0uKNEYvvEFL+gbJb\nvp+lV21yEaMrgACfwqpPAxHWpwfPbaQsvsd6lx2sQGxu8Pbq2xJQyg==\n-----END AGE ENCRYPTED FILE-----\n"
+        "enc": "..."
       }
     ],
     "lastmodified": "2023-10-22T17:06:41Z",
-    "mac": "ENC[AES256_GCM,data:heZ8JWHCxEwNrElet4pxbLPVdr6LYfTbmwJskU3vTI93nWzkWheeGFWK7N/0AWLhwnym8JwTCyILyaBH8awhd97OkF4mxnof7qcmdVDp03ym0UfAexUzetoHRQCwgWrqy6aptIJkBrz09zU1AcKKkSVXQlliXAm4LlXLRoko/jo=,iv:8Vn3xekdgdwOVlPLc/ZyaYdrORPLLrAUnFyY09NtnNc=,tag:A6S73GmysHfY/HN439wpCg==,type:str]",
+    "mac": "ENC[AES256_GCM,data:...,iv:...,tag:...,type:str]",
     "pgp": null,
     "unencrypted_suffix": "_unencrypted",
     "version": "3.8.1"
