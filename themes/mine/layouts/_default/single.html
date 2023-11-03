@@ -14,7 +14,13 @@
 
         <hr />
         <div class="for-disqus">
-            {{ template "_internal/disqus.html" . }}
+            <script src="https://utteranc.es/client.js"
+                    repo="aorith/aorith.github.io"
+                    issue-term="pathname"
+                    theme="preferred-color-scheme"
+                    crossorigin="anonymous"
+                    async>
+            </script>
         </div>
         <p>&nbsp;</p>
     {{ end }}
