@@ -13,7 +13,14 @@ All my custom scripts begin with a comma (`,`), a handy trick I adopted for quic
 
 ## Random Password Generator
 
-If you're anything like me, you frequently need to churn out random passwords, tokens, or arbitrary strings. While graphical tools and online generators exist, I've always preferred the speed and convenience of the terminal. Typing `,randompassword` and copying its output is pretty fast, you can also choose the length of the string by passing it as the first argument:
+If you frequently need to churn out random passwords, tokens, or arbitrary strings, this is a must have. While graphical tools and online generators exist, I've always preferred the speed and convenience of the terminal. Typing `,randompassword` and copying its output is pretty fast.
+
+```shell
+$ ,randompassword
+MFNc9vIC0qc5Abnan0
+```
+
+You can also choose the length of the string by passing it as the first argument:
 
 ```shell
 $ ,randompassword 10
