@@ -442,7 +442,7 @@ section.posts_listing {
     padding: calc(var(--space-0) * 0.5);
   }
 
-  #div.for-disqus {
+  #div.comments {
     width: 95%;
   }
 }
