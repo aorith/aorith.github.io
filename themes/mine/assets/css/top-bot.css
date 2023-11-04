@@ -1,16 +1,16 @@
-nav ul,
-nav li {
+#top nav ul,
+#top nav li {
   margin: 0;
   padding: 0;
 }
 
-nav ul li {
+#top nav ul li {
   list-style-type: none;
   display: inline-block;
   padding: 0 var(--space-0);
 }
 
-nav ul li a {
+#top nav ul li a {
   padding: var(--space-0);
 }
 
@@ -136,7 +136,7 @@ abbr {
 
 /* Mobile and small screens */
 @media only screen and (max-width: 1048px) {
-  nav ul {
+  #top nav ul {
     display: grid;
     grid-auto-columns: auto;
     grid-template-areas: "a";
@@ -144,7 +144,7 @@ abbr {
     text-align: center;
     gap: var(--space-0);
   }
-  nav ul li {
+  #top nav ul li {
     display: inline-block;
   }
 
