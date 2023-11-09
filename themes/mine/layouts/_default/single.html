@@ -1,4 +1,11 @@
 {{ define "main" }}
+    {{ if not .Params.onlycontent }}
+        <details id="toc" open>
+            <summary>Table of contents</summary>
+            {{ .TableOfContents }}
+        </details>
+    {{ end }}
+
     <article>
         {{ .Content }}
     </article>

@@ -382,6 +382,23 @@ section.posts_listing {
   }
 }
 
+details#toc {
+  cursor: pointer;
+  background-color: var(--bg-2);
+  padding: var(--space-0);
+  margin-bottom: var(--space-1);
+  & nav ul {
+    list-style-type: none;
+    margin: auto;
+  }
+  & nav ul li {
+    margin: calc(var(--space-0) * 0.5);
+  }
+  & nav ul li a {
+    text-decoration: none;
+  }
+}
+
 .align-center {
   text-align: center;
 }
