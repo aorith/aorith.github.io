@@ -73,13 +73,23 @@ pre {
   background: var(--bg-2) !important;
   margin: var(--vertical-0) 0;
   padding: var(--space-1);
-  padding-left: var(--vertical-0);
+  padding-left: var(--space-2);
   white-space: pre-wrap;
+  white-space-collapse: preserve;
   overflow-x: auto;
+  overflow-wrap: break-word;
   word-break: normal;
   word-wrap: inherit;
   border-top: 5px solid var(--bg-1);
   border-bottom: 5px solid var(--bg-1);
+}
+
+pre code {
+  display: inline-block;
+  overflow-wrap: normal;
+  word-break: normal;
+  word-spacing: 0;
+  text-wrap: nowrap;
 }
 
 p code {
