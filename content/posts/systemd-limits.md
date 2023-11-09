@@ -1,5 +1,5 @@
 ---
-title: "Resource Limits in systemd"
+title: "Resource limits in systemd"
 date: "2023-10-20T19:37:13+02:00"
 tags:
   - systemd

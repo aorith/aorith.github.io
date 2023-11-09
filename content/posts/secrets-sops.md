@@ -1,5 +1,5 @@
 ---
-title: "Secrets Management With SOPS and age"
+title: "Secrets management with SOPS and age"
 date: "2023-10-22T19:12:27+02:00"
 draft: false
 tags:

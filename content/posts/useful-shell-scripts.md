@@ -1,5 +1,5 @@
 ---
-title: "Useful Shell Scripts"
+title: "Useful shell scripts"
 date: "2023-11-03T19:03:12+01:00"
 draft: false
 tags:
@@ -11,7 +11,7 @@ Over the years, I've crafted a bunch of shell scripts to help in my daily workfl
 
 All my custom scripts begin with a comma (`,`), a handy trick I adopted for quick access. By typing `,<TAB>` in the terminal, auto-completion instantly lists all of them, ensuring they don't get mixed up with other executables present in `$PATH`. Note that these scripts aren't POSIX compliant; I use them exclusively on my machines which have recent versions of bash.
 
-## Random Password Generator
+## Random password generator
 
 If you frequently need to churn out random passwords, tokens, or arbitrary strings, this is a must have. While graphical tools and online generators exist, I've always preferred the speed and convenience of the terminal. Typing `,randompassword` and copying its output is pretty fast.
 
@@ -45,7 +45,9 @@ randompassword "$@"
 
 However, When I need something more featureful, I use [KeePassXC](https://keepassxc.org/).
 
-## SSL Certificate Chain Verification
+## TLS certificates
+
+### Chain validation
 
 Next script is a bit more complicated, I use it in order to quickly check the certificate chain of local certificates. It employs some `awk` wizardry to parse a certificate in PEM format.
 
@@ -116,7 +118,69 @@ awk -F'\n' '
 printf "\nopenssl verify: %s\n" "$(openssl verify -untrusted "${chain_pem}" "${chain_pem}")"
 ```
 
-## Checking SSL Certificate Information and Expiry Date
+### Verify certificate matches its private key
+
+The script below automates the process of checking if a TLS certificate and a private key correspond to each other. It supports RSA and ECDSA key formats.
+
+How to use: `,certs_check-cert-matches-key <certificate> <private_key>`:
+
+```shell
+$ ,certs_check-cert-matches-key cert.pem good.key
+Format: ECDSA
+Match! Certificate and key pair match.
+
+$ ,certs_check-cert-matches-key cert.pem bad.key
+Format: ECDSA
+Mismatch! Certificate and key pair do not match.
+Certificate public part:  MD5(stdin)= 1075090c04ef326b12c20537aa2f9c69
+Private Key public part:  MD5(stdin)= cc3355454aa05eb32f15fa4c35e8ee1f
+```
+
+Here's the script:
+
+```shell
+#!/usr/bin/env bash
+
+check_cert_matches_key() {
+    local cert="$1"
+    local key="$2"
+    local cert_pub key_pub
+
+    if [[ ! -f "$cert" ]] || [[ ! -f "$key" ]]; then
+        echo "Usage: ${FUNCNAME[0]} <cert_path> <key_path>"
+        return 1
+    fi
+
+    # Calculate according to the key format
+    if openssl rsa -noout -text -in "$key" >/dev/null 2>&1; then
+        echo "Format: RSA"
+        cert_pub=$(openssl x509 -noout -modulus -in "$cert" | openssl md5)
+        key_pub=$(openssl rsa -noout -modulus -in "$key" | openssl md5)
+    elif openssl ec -noout -text -in "$key" >/dev/null 2>&1; then
+        echo "Format: ECDSA"
+        cert_pub=$(openssl x509 -noout -pubkey -in "$cert" | openssl ec -pubin -pubout 2>/dev/null | openssl md5)
+        key_pub=$(openssl ec -pubout -in "$key" 2>/dev/null | openssl md5)
+    else
+        echo "Unrecognized or unsupported key format."
+        return 1
+    fi
+
+    # Check if the public parts match
+    if [[ "$cert_pub" == "$key_pub" ]]; then
+        echo "Match! Certificate and key pair match."
+        return 0
+    else
+        echo "Mismatch! Certificate and key pair do not match."
+        echo "Certificate public part:  $cert_pub"
+        echo "Private Key public part:  $key_pub"
+        return 1
+    fi
+}
+
+check_cert_matches_key "$@"
+```
+
+### Basic info and expiry date
 
 When I need to verify the installed certificate of a domain, I use the following two commands:
 
@@ -183,7 +247,7 @@ notBefore=Feb 21 00:00:00 2023 GMT
 notAfter=Mar 20 23:59:59 2024 GMT
 ```
 
-## Parse Unix Timestamps
+## Parse unix timestamps
 
 This little script parses UNIX timestamps and outputs the result as a JSON string. To convert a UNIX timestamp, simply call the script followed by the timestamp:
 
