@@ -420,7 +420,6 @@ details#toc {
   }
 
   main#content {
-    margin: var(--space-1);
     padding: calc(var(--space-0) * 0.5);
     padding-top: var(--space-1);
     padding-bottom: var(--space-0);
@@ -433,9 +432,8 @@ details#toc {
   }
 
   pre {
-    margin: var(--vertical-0) 0;
     padding: var(--space-0);
-    padding-left: calc(var(--vertical-0) / 2);
+    padding-left: var(--space-1);
     border-top: 4px solid var(--bg-1);
     border-bottom: 4px solid var(--bg-1);
   }
