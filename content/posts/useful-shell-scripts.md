@@ -118,7 +118,7 @@ awk -F'\n' '
 printf "\nopenssl verify: %s\n" "$(openssl verify -untrusted "${chain_pem}" "${chain_pem}")"
 ```
 
-### Verify certificate matches its private key
+### Private key verification
 
 The script below automates the process of checking if a TLS certificate and a private key correspond to each other. It supports RSA and ECDSA key formats.
 
