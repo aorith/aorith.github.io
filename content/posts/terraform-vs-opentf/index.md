@@ -19,7 +19,7 @@ But back to the main point, when Terraform first emerged, their team put in comm
 
 I said "to make it accessible", but they really pushed it. Terraform garnered widespread adoption, and the folks at [HashiCorp](https://www.hashicorp.com/) did a splendid job of keeping the tool well-documented and building a rich ecosystem of plugins and providers. Not to mention the great community that emerged around Terraform.
 
-![Terraform Google Search Trend](tf-trends.png "Google search trends for Terraform since its inception")
+![Google search trends for Terraform since its inception](tf-trends.png)
 
 ## The Need for Sustainable Revenue
 
