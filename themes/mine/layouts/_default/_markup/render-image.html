@@ -1,8 +1,15 @@
 {{ if .Title }}
-<figure>
-    <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}">
-    <figcaption>{{ .Title }}</figcaption>
-</figure>
+    {{ if eq .Title . "float" }}
+        <figure style="float:right">
+            <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}">
+            <figcaption>{{ .Text }}</figcaption>
+        </figure>
+    {{ else }}
+        <figure>
+            <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}">
+            <figcaption>{{ .Title }}</figcaption>
+        </figure>
+    {{ end }}
 {{ else }}
-<img src="{{ .Destination | safeURL }}" alt="{{ .Text }}">
+    <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}">
 {{ end }}
