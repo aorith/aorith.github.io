@@ -604,7 +604,7 @@ Take a look at this brief video showcasing the application.
 
 ## Extending the project
 
-For those interested in a hands-on experience and looking to expand this project, a good next step would be to serve this HTML page from an Amazon S3 bucket and use Amazon CloudFront as a CDN. This would require:
+For those interested in a deep hands-on experience, a good next step would be to serve this HTML page from an Amazon S3 bucket and use Amazon CloudFront as a CDN, those two services are also considered serverless and complement each other perfectly. This would require:
 
 1. **Storing the HTML file in S3**: Create an S3 bucket, upload the HTML file, and configure the bucket for static website hosting.
 2. **Setting up CloudFront**: Create a CloudFront distribution that points to your S3 bucket.
