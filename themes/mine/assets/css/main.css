@@ -229,10 +229,12 @@ tr:hover {
 
 figure {
   margin: 0;
-  padding: 0;
+  padding: var(--space-2);
 }
 
-img {
+figure img {
+  display: block;
+  margin: auto;
   height: auto;
   max-width: 100%;
   box-shadow: 0 1px 3px var(--fg-1);
@@ -469,5 +471,9 @@ details#toc {
 
   #div.comments {
     width: 95%;
+  }
+
+  figure {
+    padding: var(--space-1);
   }
 }

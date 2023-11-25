@@ -1,8 +1,17 @@
+{{/* .Title is used to add css style */}}
+
 {{ if .Title }}
-<figure>
-    <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}">
-    <figcaption>{{ .Title }}</figcaption>
-</figure>
+    <figure {{ printf "style='%s'" .Title | safeHTMLAttr }}>
+        <a href="{{ .Destination | safeURL }}" target="_blank">
+            <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}">
+        </a>
+        <figcaption>{{ .Text }}</figcaption>
+    </figure>
 {{ else }}
-<img src="{{ .Destination | safeURL }}" alt="{{ .Text }}">
+    <figure>
+        <a href="{{ .Destination | safeURL }}" target="_blank">
+            <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}">
+        </a>
+        <figcaption>{{ .Text }}</figcaption>
+    </figure>
 {{ end }}
