@@ -247,6 +247,10 @@ figcaption {
   font-size: var(--code-font-size);
 }
 
+video {
+  max-width: 95%;
+}
+
 #tags_list {
   display: grid;
   margin: 0 var(--vertical-0);

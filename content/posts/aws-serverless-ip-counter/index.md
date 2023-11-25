@@ -619,8 +619,7 @@ Once you have saved it, open it with a local browser, you should see a different
 Take a look at this brief video showcasing the application.
 
 {{< rawhtml >}}
-<video controls width="1000">
-
+<video controls>
   <source src="ip-counter-2.webm" type="video/webm" />
   Download the
   <a href="ip-counter-2.webm">WEBM</a>
