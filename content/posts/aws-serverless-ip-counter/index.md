@@ -146,7 +146,7 @@ This file defines three variables: `env`, `name`, and `region`, with default val
 
 ## Initial lambda function
 
-The next step in our project is to set up the initial AWS Lambda function. We will start with a simple Python function that returns a "Hello, word" string, and later modify it to interact with DynamoDB.
+The next step in our project is to set up the initial AWS Lambda function. We will start with a simple Python function that returns a "Hello, world!" string, and later modify it to interact with DynamoDB.
 
 ### Step 1: Create the lambda function code
 
