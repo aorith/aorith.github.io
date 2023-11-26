@@ -494,7 +494,7 @@ Now we'll create a simple HTML page that will call our lambda function URL using
 
 ### JavaScript
 
-The JavaScript code embedded in the HTML file is designed to interact with your AWS Lambda function:
+The JavaScript code that will be embedded in the HTML file is designed to interact with your lambda function URL:
 
 ```javascript
 window.onload = function () {
@@ -521,6 +521,8 @@ window.onload = function () {
     });
 };
 ```
+
+Here's how it works:
 
 1. It triggers a function with `window.onload` event.
 2. The function performs a fetch request against the lambda's URL, when the request arrives to the AWS lambda function it contains the source IP Address and other metadata about the caller.
