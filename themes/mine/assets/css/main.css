@@ -69,8 +69,8 @@ code {
   font-size: var(--code-font-size);
 }
 
-pre {
-  background: var(--bg-2) !important;
+div.highlight pre.chroma {
+  background-color: var(--bg-rgba-dim);
   margin: var(--vertical-0) 0;
   padding: var(--space-1);
   padding-left: var(--space-2);
@@ -84,7 +84,7 @@ pre {
   border-bottom: 5px solid var(--bg-1);
 }
 
-pre code {
+pre.chroma code {
   display: inline-block;
   overflow-wrap: normal;
   word-break: normal;
@@ -92,7 +92,7 @@ pre code {
   text-wrap: nowrap;
 }
 
-p code {
+:not(pre) > code {
   background-color: var(--bg-2);
   color: var(--red-1);
   padding: 3px;
@@ -437,7 +437,7 @@ details#toc {
     padding-left: var(--vertical-0);
   }
 
-  pre {
+  div.highlight pre.chroma {
     padding: var(--space-0);
     padding-left: var(--space-1);
     border-top: 4px solid var(--bg-1);

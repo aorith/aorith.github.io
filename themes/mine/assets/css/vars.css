@@ -36,6 +36,8 @@
   --bg-2: #f8f8f7;
   --fg-0: var(--black-0);
   --fg-1: var(--black-1);
+
+  --bg-rgba-dim: rgba(0, 0, 0, 0.03);
 }
 
 /* Dark Theme */
@@ -67,6 +69,8 @@
     --bg-2: #110b10;
     --fg-0: var(--white-0);
     --fg-1: var(--white-1);
+
+    --bg-rgba-dim: rgba(255, 255, 255, 0.08);
   }
 }
 
