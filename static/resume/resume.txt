@@ -91,7 +91,7 @@ Experience
 
 Certifications & Education
 
-2020
+2020, 2023
     AWS Certified Solutions Architect - Associate
 
 2019
