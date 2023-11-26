@@ -401,8 +401,11 @@ section.posts_listing {
 details#toc {
   cursor: pointer;
   background-color: var(--bg-2);
+  border-top: 2px solid var(--bg-1);
+  border-bottom: 2px solid var(--bg-1);
   padding: var(--space-0);
   margin-bottom: var(--space-1);
+
   & nav ul {
     list-style-type: none;
     margin: auto;
@@ -412,6 +415,9 @@ details#toc {
   }
   & nav ul li a {
     text-decoration: none;
+  }
+  & summary {
+    font-style: italic;
   }
 }
 
