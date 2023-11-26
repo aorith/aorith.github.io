@@ -48,7 +48,7 @@ OK, let's get started!
 
 To begin, we need to set up a local Git repository for our project. I know that this is very basic but I want to guide you through the whole process.
 
-### Step 1: Initialize a git repository
+### 1. Initialize a git repository
 
 Create a new directory for your project and initialize a Git repository:
 
@@ -58,7 +58,7 @@ cd serverless-ip-counter
 git init
 ```
 
-### Step 2: Create a '.gitignore' file
+### 2. Create a '.gitignore' file
 
 Create a `.gitignore` file in the root of your project directory. For Terraform projects, it's **uttermost important** to exclude state files, lock files, etc. that might contain sensitive data.
 
@@ -87,7 +87,7 @@ terraform.rc
 lambda-code.zip
 ```
 
-### Step 3: Create the 'provider.tf' file
+### 3. Create the 'provider.tf' file
 
 Next, create a file named `provider.tf`:
 
@@ -115,7 +115,7 @@ provider "aws" {
 
 Replace `<CLI_PROFILE>` with your AWS CLI profile name. The `region` and `name` values will be defined in the next step.
 
-### Step 4: Define variables and locals
+### 4. Define variables and locals
 
 Now, let's define some variables and locals that our Terraform configuration will use.
 
@@ -148,7 +148,7 @@ This file defines three variables: `env`, `name`, and `region`, with default val
 
 The next step in our project is to set up the initial AWS Lambda function. We will start with a simple Python function that returns a "Hello, world!" string, and later modify it to interact with DynamoDB.
 
-### Step 1: Create the lambda function code
+### 1. Create the lambda function code
 
 First, we need to write the Python code for our Lambda function. Create a new directory named `lambda-code` in your project and add a file named `lambda_function.py` with the following code:
 
@@ -159,7 +159,7 @@ def lambda_handler(event, context):
 
 This is really basic but will help us testing that everything is working correctly.
 
-### Step 2: Terraform resources for lambda
+### 2. Terraform resources for lambda
 
 Now, let's create the Terraform configuration to deploy this Lambda function. You'll need to define three resources: [aws_lambda_function](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function), [archive_file](https://registry.terraform.io/providers/hashicorp/archive/latest/docs/data-sources/file) and [aws_iam_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role).
 
@@ -226,11 +226,13 @@ Success! The configuration is valid.
 
 To provide easy HTTP access to our Lambda function, we'll use the [aws_lambda_function_url](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function_url) resource. This is a simpler alternative to setting up an API Gateway and is suitable for our project's scope.
 
-### Why choose this over API Gateway?
+### Why use a lambda URL over API Gateway?
 
-API Gateway offers a range of features like request validation, rate limiting, and more advanced routing options, but it can be overkill for simpler applications like this demo. In contrast, lambda function URLs allows for direct HTTP invocation.
+API Gateway offers a range of features like request validation, rate limiting, and more advanced routing options, but it can be overkill for simpler applications like this demo. In contrast, lambda function URLs allows for direct HTTP invocation which simplifies testing and implementation.
 
-### Step 1: Append the lambda function URL to the 'lambda.tf' file
+If we had several API endpoints or lambdas it would be a good idea to put API Gateway infront of our architecture.
+
+### 1. Append the lambda function URL to the 'lambda.tf' file
 
 Add the following code to the existing `lambda.tf` file:
 
@@ -254,7 +256,7 @@ resource "aws_lambda_function_url" "url_1" {
 
 Now that we have set up our initial lambda function and its associated URL, it's time to apply our Terraform configuration and test it.
 
-### Step 1: Create the file 'outputs.tf'
+### 1. Create the file 'outputs.tf'
 
 Before that, we will create a file named `outputs.tf` which will output the URL of our Lambda function once Terraform applies the configuration (or by using `terraform output`). This will allow us to retrieve the URL easily.
 
@@ -266,7 +268,7 @@ output "lambda_url" {
 }
 ```
 
-### Step 2: Apply the terraform configuration
+### 2. Apply the terraform configuration
 
 Before applying our configuration, it's good practice to run `terraform plan` to **review the changes** that will be made to the infrastructure. We don't want to break production, do we?
 
@@ -286,7 +288,7 @@ Outputs:
 lambda_url = "https://gceulcmv2nckndx66lle7q4c6y0xpmap.lambda-url.us-east-1.on.aws/"
 ```
 
-### Step 3: Test the lambda function
+### 3. Test the lambda function
 
 Finally, test the lambda function to ensure it's working. You can do this using `curl` with the function URL:
 
@@ -303,7 +305,7 @@ Next, we'll deploy our DynamoDB table.
 
 For our application to work, we need a database to store our counters. DynamoDB is a NoSQL key/value database that will fit our use case perfectly.
 
-### Step 1: Define the DynamoDB table
+### 1. Define the DynamoDB table
 
 Create a new file named `dynamodb.tf` in your project directory. This file will contain the configuration for our DynamoDB table and an IAM policy document granting read and write access to DynamoDB that we will attach to our lambda function IAM role policy.
 
@@ -335,7 +337,7 @@ resource "aws_dynamodb_table" "ip-counter" {
 }
 ```
 
-### Step 2: IAM Role policy
+### 2. IAM Role policy
 
 Currently, our lambda function doesn't have any permissions to interact with our DynamoDB table, let's fix this.
 
@@ -381,7 +383,7 @@ resource "aws_iam_role" "iam_lambda" {
 }
 ```
 
-### Step 3: Modify the lambda function environment variables
+### 3. Modify the lambda function environment variables
 
 Finally, update the `aws_lambda_function` resource to include the DynamoDB table name as an environment variable. We will use this environment variable in our lambda's python code to know the name of our DynamoDB table.
 
@@ -492,7 +494,7 @@ Great! Our serverless IP Address counter is working as expected, now we will int
 
 Now we'll create a simple HTML page that will call our lambda function URL using JavaScript.
 
-### JavaScript
+### JavaScript code
 
 The JavaScript code that will be embedded in the HTML file is designed to interact with your lambda function URL:
 
@@ -529,7 +531,7 @@ Here's how it works:
 3. The response is processed expecting a JSON object that contains the `address` and `count` properties.
 4. Finally we update the HTML element with the id `message` with the appropiate content, which is different if it's the first time (the counter is 1).
 
-### Full HTML file with the embedded JavaScript
+### Final HTML file
 
 Here's the full HTML file embedding the JavaScript code and some CSS styles.
 
