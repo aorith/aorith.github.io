@@ -5,8 +5,10 @@ draft: false
 onlycontent: true
 ---
 
-Welcome to my blog! Here, you'll discover tech-related posts that have evolved from my personal notes. While expressing my thoughts hasn't always been my forte, I have undertaken the challenge to refine this skill, both in English and my native Spanish. This blog provides a platform for me to develop and enhance my skills as a communicator, and I invite you to join me on this path of improvement.
+### Hi, I'm Manuel
 
-For the primary content, please explore the [Posts](/posts/) section. If you're curious to learn more about the mind behind the blog, make a detour to the [About](/about/) page.
+…and this is where I write about all things tech. Expect a mix of discussions, from tech tips and cool finds to the occasional rant.
+
+For the primary content, please explore the [Posts](/posts/) section. If you're curious about the person behind this blog, visit the [About](/about/) page.
 
 Enjoy your visit! 🙂
