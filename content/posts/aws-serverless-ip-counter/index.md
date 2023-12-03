@@ -411,11 +411,11 @@ import os
 import boto3
 from botocore.exceptions import ClientError
 
+ddb = boto3.resource("dynamodb")
+table = ddb.Table(os.environ["DDB_TABLE_NAME"])
+
 
 def update_counter(address: str):
-    ddb = boto3.resource("dynamodb")
-    table = ddb.Table(os.environ["DDB_TABLE_NAME"])
-
     try:
         response = table.update_item(
             Key={"address": address},
