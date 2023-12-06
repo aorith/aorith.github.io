@@ -344,6 +344,11 @@ a {
   }
 }
 
+a i {
+  padding-left: 0.25rem;
+  text-decoration: none;
+}
+
 section.posts_listing {
   display: grid;
   grid-template-areas: "a";
