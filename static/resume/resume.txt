@@ -91,6 +91,9 @@ Experience
 
 Certifications & Education
 
+2023
+    AWS Certified SysOps Administrator – Associate
+
 2020, 2023
     AWS Certified Solutions Architect - Associate
 
