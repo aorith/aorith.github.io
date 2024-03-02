@@ -5,7 +5,6 @@ tags:
   - nix
   - github
   - tutorial
-draft: true
 ---
 
 NixOS and its ecosystem offer a robust tool known as the [NixOS Integration Test Framework](https://nixos.org/manual/nixos/stable/index.html#sec-nixos-tests), which is the backbone for [testing NixOS modules and packages](https://github.com/NixOS/nixpkgs/tree/master/nixos/tests).
