@@ -1,7 +1,10 @@
 {{ define "main" }}
     <section class="posts_listing">
-        {{ range (.Pages).ByDate.Reverse }}
-            {{ partial "list-item.html" . }}
+        {{ range ((.Pages).GroupByDate "2006") }}
+            <h4>{{ .Key }}</h4>
+            {{ range (.Pages).ByDate.Reverse }}
+                {{ partial "list-item.html" . }}
+            {{ end }}
         {{ end }}
     </section>
 {{ end }}
