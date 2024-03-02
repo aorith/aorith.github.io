@@ -32,9 +32,9 @@ menu:
     - name: Tags
       url: /tags/
       weight: 10
-    - name: Resume
-      url: /resume/
-      weight: 20
+    # - name: Resume
+    #   url: /resume/
+    #   weight: 20
     - name: About
       url: /about/
       weight: 30
