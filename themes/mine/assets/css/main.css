@@ -81,8 +81,8 @@ pre {
   overflow-wrap: break-word;
   word-break: normal;
   word-wrap: inherit;
-  border-top: 5px solid var(--bg-1);
-  border-bottom: 5px solid var(--bg-1);
+  border-radius: 3px;
+  border: 1px solid var(--bg-1);
 }
 
 pre.chroma code {
@@ -453,8 +453,6 @@ details#toc {
   pre {
     padding: var(--space-0);
     padding-left: var(--space-1);
-    border-top: 4px solid var(--bg-1);
-    border-bottom: 4px solid var(--bg-1);
   }
 
   #tags_list {
