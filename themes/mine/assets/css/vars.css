@@ -38,6 +38,7 @@
   --fg-1: var(--black-1);
 
   --bg-rgba-dim: rgba(0, 0, 0, 0.03);
+  --highlight: #ffffcc;
 }
 
 /* Dark Theme */
@@ -71,6 +72,7 @@
     --fg-1: var(--white-1);
 
     --bg-rgba-dim: rgba(255, 255, 255, 0.08);
+    --highlight: rgba(255, 255, 235, 0.08);
   }
 }
 

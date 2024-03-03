@@ -69,6 +69,10 @@ code {
   font-size: var(--code-font-size);
 }
 
+div.highlight pre.chroma code span.hl {
+  background-color: var(--highlight);
+}
+
 div.highlight pre.chroma,
 pre {
   background-color: var(--bg-rgba-dim);

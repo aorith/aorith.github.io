@@ -62,7 +62,7 @@ functions for running tests.
 As its first argument receives a file, in this case: `./test.nix`. This file defines all the
 machines that will be part of the test, and the test itself:
 
-```nix
+```nix {hl_lines=[4,13]}
 {
   name = "Simple ping test";
 
@@ -344,9 +344,58 @@ Create a file named `tests/echo-server.nix`:
 ```
 
 As you can see, with less that 50 lines of code we have a test that spins two
-virtual machines, one of them starts our application with a custom listening
-port and the other runs a test using netcat. The test ensures that the
-service is running, the port is listening and the text received by the server is the same.
+virtual machines.
+
+One of them starts our application with a custom listening port:
+
+```nix {hl_lines=[4,"7-10",13]}
+  nodes = {
+    # Machine 1: The server that will run the service
+    server = {config, ...}: {
+      imports = [../echo-server-module.nix];
+
+      # Configure the service
+      services.echo-server = {
+        enable = true;
+        port = 8222;
+      };
+
+      networking.firewall.allowedTCPPorts = [
+        config.services.echo-server.port
+      ];
+```
+
+Notice how for this machine we import the echo server module and we enable and
+configure it. Lastly we open the firewall port by referencing this same configuration.
+
+The client machine doesn't need any configuration, we just declare it:
+
+```nix {hl_lines=[3]}
+    # Machine 2: The client that will connect to the echo-server service
+    # netcat (nc) is already available in the 'libressl' package.
+    client = {...}: {};
+```
+
+Finally, test ensures that the service is running, the port is listening and the text received matches:
+
+```nix {hl_lines=["8-10","13-14"]}
+  testScript = {nodes, ...}: ''
+    PORT = ${builtins.toString nodes.server.services.echo-server.port}
+    TEST_STRING = "Test string. The server should echo it back."
+
+    start_all()
+
+    # Wait until VMs are up and the service is started.
+    server.wait_for_unit("echo-server.service")
+    server.wait_for_open_port(${builtins.toString nodes.server.services.echo-server.port})
+    client.wait_for_unit("network-online.target")
+
+    # The actual test sends an arbitrary string and expects to find it in the output
+    output = client.succeed(f"echo '{TEST_STRING}' | nc -4 -N server {PORT}")
+    assert TEST_STRING in output
+  '';
+}
+```
 
 ### Consolidating in a nix flake
 
@@ -369,7 +418,7 @@ Create a file named `flake.nix`, the folder estructure should be like this:
 
 The content of the `flake.nix` file is:
 
-```nix
+```nix {hl_lines=["10-12",17]}
 {
   description = "NixOS integration tests example";
 
