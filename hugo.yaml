@@ -21,8 +21,10 @@ params:
 markup:
   highlight:
     codeFences: true
-    lineNos: false
     noClasses: false
+    lineNos: false
+    anchorLineNos: true
+    lineNumbersInTable: false
 
 menu:
   main:
