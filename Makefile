@@ -4,6 +4,7 @@ PATH = $(shell nix develop --command bash -c 'echo $$PATH')
 
 PHONY: serve
 serve:
+	rm -rf public
 	hugo server --buildDrafts
 
 PHONY: new

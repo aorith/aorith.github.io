@@ -1,6 +1,6 @@
 ---
 title: "Nixos Integration Tests"
-date: "2024-03-02T13:03:28+01:00"
+date: "2024-03-06T18:03:28+01:00"
 tags:
   - nix
   - github
@@ -18,52 +18,15 @@ Finally I'll demonstrate how this can be integrated in a pipeline using GitHub a
 
 ## Getting Started with a Simple Test
 
-To illustrate the process, we'll begin with a straightforward example. This will demonstrate how to execute tests using a nix flake. We start by defining our `flake.nix`.
+To illustrate the process, we'll begin with a straightforward example. This will demonstrate how to execute tests using a nix flake.
 
 All the files for this example can be found [here](https://github.com/aorith/nixos-ci-tests/tree/master/simple-test).
 
-```nix
-{
-  description = "Very simple NixOS test";
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+Create a file named `test.nix`. This file is a normal derivation initiated using [pkgs.nixosTest](https://nixos.org/manual/nixpkgs/stable/#tester-nixosTest) (alias of `pkgs.testers.nixosTest`), which is one of the helper functions for running tests.
 
-  outputs = inputs: let
-    forAllSystems = inputs.nixpkgs.lib.genAttrs ["aarch64-darwin" "aarch64-linux" "x86_64-darwin" "x86_64-linux"];
-  in {
-    checks = forAllSystems (system: let
-      pkgs = import inputs.nixpkgs {inherit system;};
-    in {
-      simple = pkgs.testers.runNixOSTest ./test.nix;
-    });
-  };
-}
-```
-
-When we run `nix flake show`, we can see that it implements a single check named
-`simple`. We could define multiple checks if we wanted to.
-
-```sh
-$ nix flake show
-git+file:///home/aorith/githome/nixos-ci-tests?dir=simple-test&ref=refs/heads/master&rev=06a4d408e742369ef1757f73d1b977459f7d4290
-└───checks
-    ├───aarch64-darwin
-    │   └───simple omitted (use '--all-systems' to show)
-    ├───aarch64-linux
-    │   └───simple omitted (use '--all-systems' to show)
-    ├───x86_64-darwin
-    │   └───simple omitted (use '--all-systems' to show)
-    └───x86_64-linux
-        └───simple: derivation 'vm-test-run-Simple-ping-test'
-```
-
-The check is initiated using [pkgs.testers.runNixOSTest](https://nixos.org/manual/nixpkgs/stable/#tester-runNixOSTest), which is one of the helper
-functions for running tests.
-
-As its first argument receives a file, in this case: `./test.nix`. This file defines all the
-machines that will be part of the test, and the test itself:
-
-```nix {hl_lines=[4,13]}
-{
+```nix {hl_lines=[5,14]}
+{pkgs}:
+pkgs.nixosTest {
   name = "Simple ping test";
 
   nodes = {
@@ -88,6 +51,44 @@ machines that will be part of the test, and the test itself:
 
 A test has two main options: `nodes`, which specifies the machines and their
 configurations, and `testScript`, a piece of Python code that defines the actual test.
+
+Each machine in nodes actually spawns a QEMU based VM to run the tests.
+
+Now, create a `flake.nix` file and add this test as a check:
+
+```nix {hl_lines=[11]}
+{
+  description = "Very simple NixOS test";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+  outputs = inputs: let
+    forAllSystems = inputs.nixpkgs.lib.genAttrs ["aarch64-darwin" "aarch64-linux" "x86_64-darwin" "x86_64-linux"];
+  in {
+    checks = forAllSystems (system: let
+      pkgs = import inputs.nixpkgs {inherit system;};
+    in {
+      simple = pkgs.callPackage ./test.nix {inherit pkgs;};
+    });
+  };
+}
+```
+
+When we run `nix flake show`, we can see that it implements a single check named
+`simple`. We could define multiple checks if we wanted to.
+
+```sh
+$ nix flake show
+git+file:///home/aorith/githome/nixos-ci-tests?dir=simple-test&ref=refs/heads/master&rev=06a4d408e742369ef1757f73d1b977459f7d4290
+└───checks
+    ├───aarch64-darwin
+    │   └───simple omitted (use '--all-systems' to show)
+    ├───aarch64-linux
+    │   └───simple omitted (use '--all-systems' to show)
+    ├───x86_64-darwin
+    │   └───simple omitted (use '--all-systems' to show)
+    └───x86_64-linux
+        └───simple: derivation 'vm-test-run-Simple-ping-test'
+```
 
 ### Executing the test
 
@@ -124,6 +125,18 @@ If the test is successful the exit code will be 0 as expected.
 
 Subsequent runs may utilize the cached results, skipping the test execution.
 
+### Debugging
+
+For complex tests, we can execute an interactive python REPL with all the objects of `testScript`. This helps debugging and ensuring that the tests work as expected:
+
+```sh
+$ nix run .#checks.x86_64-linux.simple.driverInteractive
+```
+
+Replace `x86_64-linux` when running on a different architecture.
+
+![Interactive python REPL for debugging](debug-test.png)
+
 Now we're ready to tackle more complex test example.
 
 ## Testing a Go application
@@ -142,12 +155,13 @@ The full code for this example can be found [here](https://github.com/aorith/nix
 First, we'll start by setting up our Go application. This involves initializing a new Go project and writing a simple "echo" TCP server that sends back whatever input it receives. To bootstrap the application, use the following commands:
 
 ```sh
-$ mkdir -p echo-server
-$ cd echo-server
+$ mkdir -p echo-server/src
+$ cd echo-server/src
 $ go mod init example/echo-server
 ```
 
-Here's the `main.go` file for the echo server:
+Here's the `main.go` file for the echo server, don't pay too much attention to
+it, it's just an example:
 
 ```go
 package main
@@ -232,11 +246,11 @@ Received: hello
 Now we need to package this Go application, we'll use [pkgs.buildGoModule](https://nixos.org/manual/nixpkgs/stable/#ssec-language-go), it's pretty straightforward:
 
 ```nix
-# echo-server.nix
+# ./echo-server/echo-server.nix
 {pkgs ? import <nixpkgs> {}}:
 pkgs.buildGoModule {
   name = "echo-server";
-  src = ./.;
+  src = ./src;
   vendorHash = null;
 }
 ```
@@ -256,7 +270,7 @@ We'll now create a NixOS module for our application.
 This module will set up our application as a systemd service and include an option to customize the listening port.
 The "server" machine in our test will include this module to start the application.
 
-Create a file named `echo-server-module.nix` in the same folder as our Go application:
+Create a file named `echo-server/echo-server-module.nix` with the following content:
 
 ```nix
 {
@@ -289,23 +303,27 @@ in {
 ```
 
 Here, `options.services.echo-server` defines new config options that the NixOS
-configuration that imports this module will have, and `config` conditionally
+configuration importing this module will have available, and `config` conditionally
 creates the required systemd service if the option is enabled.
 
 ### Implementing the test
 
 For testing, we want to simulate a scenario with two machines: one running our echo server and the other sending messages to it. We'll write a test in Nix that sets up these machines and checks if the communication works as expected:
 
-Create a file named `tests/echo-server.nix`:
+Create a file named `echo-server/tests/echo-server.nix`:
 
 ```nix
 {
+  self,
+  pkgs,
+}:
+pkgs.nixosTest {
   name = "Echo Server Service Test";
 
   nodes = {
     # Machine 1: The server that will run the service
     server = {config, ...}: {
-      imports = [../echo-server-module.nix];
+      imports = [self.nixosModules.echo-server];
 
       # Configure the service
       services.echo-server = {
@@ -352,7 +370,7 @@ One of them starts our application with a custom listening port:
   nodes = {
     # Machine 1: The server that will run the service
     server = {config, ...}: {
-      imports = [../echo-server-module.nix];
+      imports = [self.nixosModules.echo-server];
 
       # Configure the service
       services.echo-server = {
@@ -365,7 +383,8 @@ One of them starts our application with a custom listening port:
       ];
 ```
 
-Notice how for this machine we import the echo server module and we enable and
+Notice how for this machine we import the "echo-server" module (you'll see later
+how it's present in the `self` property) then we enable and
 configure it. Lastly we open the firewall port by referencing this same configuration.
 
 The client machine doesn't need any configuration, we just declare it:
@@ -403,13 +422,14 @@ Now we'll put together all the components into a nix flake.
 
 Create a file named `flake.nix`, the folder estructure should be like this:
 
-```
+```sh {hl_lines=[11]}
 .
 ├── echo-server
 │   ├── echo-server-module.nix
 │   ├── echo-server.nix
-│   ├── go.mod
-│   ├── main.go
+│   ├── src
+│   │   ├── go.mod
+│   │   └── main.go
 │   └── tests
 │       └── echo-server.nix
 ├── flake.lock
@@ -418,7 +438,7 @@ Create a file named `flake.nix`, the folder estructure should be like this:
 
 The content of the `flake.nix` file is:
 
-```nix {hl_lines=["10-12",17]}
+```nix {linenos=true,hl_lines=["14-16",18,22,25]}
 {
   description = "NixOS integration tests example";
 
@@ -426,19 +446,24 @@ The content of the `flake.nix` file is:
     nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
   };
 
-  outputs = {nixpkgs, ...}: let
+  outputs = {
+    self,
+    nixpkgs,
+    ...
+  }: let
     forAllSystems = nixpkgs.lib.genAttrs ["aarch64-darwin" "aarch64-linux" "x86_64-darwin" "x86_64-linux"];
     echoServerOverlay = final: prev: {
       echo-server = final.callPackage ./echo-server/echo-server.nix {pkgs = final;};
     };
   in {
+    nixosModules.echo-server = import ./echo-server/echo-server-module.nix;
     checks = forAllSystems (system: let
       pkgs = import nixpkgs {
         inherit system;
         overlays = [echoServerOverlay];
       };
     in {
-      echo-server = pkgs.testers.runNixOSTest ./echo-server/tests/echo-server.nix;
+      echo-server = pkgs.callPackage ./echo-server/tests/echo-server.nix {inherit self pkgs;};
     });
   };
 }
@@ -448,20 +473,28 @@ It's very similar to the first example, with the exception that we create an
 _overlay_. The overlay adds our application as a package named "echo-server" to the nixpkgs, making
 it available under `pkgs.echo-server`.
 
+At line `18` we import the "echo-server" module as a NixOS module, this
+allows to reference it as `self.nixosModules.echo-server`. The attribute `self`
+references the whole flake.
+
+Then at line `25` the test is called with the required arguments.
+
 Now run `nix flake show`, you should see an output similar to the following:
 
 ```sh
 $ nix flake show
-git+file:///home/aorith/githome/nixos-ci-tests?dir=echo-server&ref=refs/heads/master&rev=06a4d408e742369ef1757f73d1b977459f7d4290
-└───checks
-    ├───aarch64-darwin
-    │   └───echo-server omitted (use '--all-systems' to show)
-    ├───aarch64-linux
-    │   └───echo-server omitted (use '--all-systems' to show)
-    ├───x86_64-darwin
-    │   └───echo-server omitted (use '--all-systems' to show)
-    └───x86_64-linux
-        └───echo-server: derivation 'vm-test-run-Echo-Server-Service-Test'
+git+file:///home/aorith/githome/nixos-ci-tests?dir=echo-server
+├───checks
+│   ├───aarch64-darwin
+│   │   └───echo-server omitted (use '--all-systems' to show)
+│   ├───aarch64-linux
+│   │   └───echo-server omitted (use '--all-systems' to show)
+│   ├───x86_64-darwin
+│   │   └───echo-server omitted (use '--all-systems' to show)
+│   └───x86_64-linux
+│       └───echo-server: derivation 'vm-test-run-Echo-Server-Service-Test'
+└───nixosModules
+    └───echo-server: NixOS module
 ```
 
 Following these steps should enable you to run the integration test for your Go application using NixOS's testing framework.
