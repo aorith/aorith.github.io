@@ -229,7 +229,7 @@ Server is listening on port 8222
 Then, in another terminal window, send some text to it using netcat:
 
 ```sh
-❯ echo hello | nc -Nn 127.0.0.1 8222
+$ echo hello | nc -Nn 127.0.0.1 8222
 hello
 ```
 
