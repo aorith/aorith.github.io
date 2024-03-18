@@ -1,5 +1,5 @@
 ---
-title: "Nixos Integration Tests"
+title: "NixOS Integration Tests"
 date: "2024-03-06T18:03:28+01:00"
 tags:
   - nix
