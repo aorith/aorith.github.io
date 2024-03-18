@@ -256,6 +256,13 @@ video {
   max-width: 95%;
 }
 
+#header_tags {
+  a {
+    text-decoration: none;
+    font-size: var(--code-font-size);
+  }
+}
+
 #tags_list {
   display: grid;
   margin: 0 var(--vertical-0);

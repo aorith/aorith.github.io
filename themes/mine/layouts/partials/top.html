@@ -33,6 +33,12 @@
                     {{ .Date.Format (.Site.Params.dateform | default "January 2006") }} · {{ .ReadingTime }} minute read
                 </time>
             {{ end }}
+
+            <div id="header_tags">
+                {{ range (.GetTerms "tags") }}
+                    <a href="/tags/{{ .Name | urlize }}">#{{ .Name }}</a>
+                {{ end }}
+            </div>
         </div>
     {{ end }}
 {{ end }}
