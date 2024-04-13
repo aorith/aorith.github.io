@@ -208,7 +208,7 @@ def main():
 ```
 
 ```bash
-Terminal 1 (the only one running the script)
+# Terminal 1 (the only one running the script)
 [aorith@arcadia:~] $ python3 /tmp/third.py
 Running main ...
 Lock acquired, running ...
