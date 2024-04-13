@@ -293,9 +293,9 @@ def some_command():
         # Main code goes here ...
 ```
 
-The problem with this approach is that we to reserve port numbers if we are using this locking method with multiple scripts in the same machine and that is not very intuitive, locking using files can have a descriptive name.
+The problem with this approach is that we need to reserve port numbers and if we are using this locking mechanism with multiple scripts on the same machine we have to pay attention not to use the same port if those scripts can run in parallel. Also port numbers aren't very intuitive for this, when we use a lock file we can give it a descriptive name.
 
-Another method would be to bind to a unix socket, so we don't lose the advantage of giving the lock file a descriptive name:
+Another method would be to bind to a unix socket, so we don't lose the advantage of having a lock file:
 
 ```python
 @contextmanager
@@ -324,7 +324,7 @@ def lock_execution(lock_file_path: Path = Path("/tmp/.example.lock")):
             lock_file_path.unlink(missing_ok=True)
 ```
 
-This seems to also work for all the scenarios that I've tested. It requires an extra `try/except` block to ensure that the socket file is removed at the end.
+This seems to also work in all the scenarios that I've tested. It requires an extra `try/except` block to ensure that the lock/socket file is removed at the end.
 
 I'll keep using the `fcntl` method because it seems less _hacky_.
 
