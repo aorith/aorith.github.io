@@ -217,7 +217,7 @@ Another instance using the lock '/tmp/.example.lock' is already running.
 
 Ehm... I don't have another instance running, what is going on? The answer is that the code block wrapped with the context manager function runs at the position of the `yield` statement, and that statement is wrapped with a `try/except` block that captures all the `IOError` exceptions.
 
-Not good, all kind of hidden errors would be hidden unexpectedly.
+Not good, errors would be hidden unexpectedly.
 
 ## Final version: Running the code outside of the try/except block
 
