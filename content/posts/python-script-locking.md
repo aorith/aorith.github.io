@@ -225,7 +225,7 @@ We need to move the `yield` statement outside of the `try/except` block and be v
 
 I'm also adding a boolean to move the `sys.exit` out of the `IOError` exception, just to be safe:
 
-```python {hl_lines=["5","15","17","23-24","26"]}
+```python {hl_lines=["11","17","19","25-26","28"]}
 @contextmanager
 def lock_execution(lock_file_path: Path = Path("/tmp/.example.lock")):
     """Prevents parallel execution."""
