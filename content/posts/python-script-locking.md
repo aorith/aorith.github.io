@@ -1,5 +1,5 @@
 ---
-title: "Python script locking: concurrency control"
+title: "Locking mechanisms in python scripts"
 date: "2024-04-13T10:50:53+02:00"
 tags:
   - python
