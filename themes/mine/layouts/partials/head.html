@@ -1,3 +1,20 @@
+{{- /* Deprecate site.Author.name in favor of site.Params.author.name */}}
+{{- $authorName := "" }}
+{{- with site.Params.author }}
+  {{- if reflect.IsMap . }}
+    {{- with .name }}
+      {{- $authorName = . }}
+    {{- end }}
+  {{- else }}
+    {{- $authorName  = . }}
+  {{- end }}
+{{- else }}
+  {{- with site.Author.name }}
+    {{- $authorName = . }}
+    {{- warnf "The author key in site configuration is deprecated. Use params.author.name instead." }}
+  {{- end }}
+{{- end }}
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +33,7 @@
     <meta property="og:type" content="article" />
     <meta property="og:description" content="{{ .Summary }}" />
     <meta name="description" content="{{ .Summary }}" />
-    <meta property="article:author" content="{{ .Site.Params.author | safeHTMLAttr }}" />
+    <meta property="article:author" content="{{ $authorName | safeHTMLAttr }}" />
     <meta property="article:published_time" content="{{ .Date | safeHTMLAttr }}" />
 {{ else }}
     <meta property="og:description" content="{{ .Description | default .Site.Params.Description }}" />

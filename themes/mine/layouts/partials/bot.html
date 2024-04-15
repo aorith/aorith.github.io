@@ -1,7 +1,22 @@
+{{- /* Deprecate site.Author.email in favor of site.Params.author.email */}}
+{{- $authorEmail := "" }}
+{{- with site.Params.author }}
+  {{- if reflect.IsMap . }}
+    {{- with .email }}
+      {{- $authorEmail = . }}
+    {{- end }}
+  {{- end }}
+{{- else }}
+  {{- with site.Author.email }}
+    {{- $authorEmail = . }}
+    {{- warnf "The author key in site configuration is deprecated. Use params.author.email instead." }}
+  {{- end }}
+{{- end }}
+
 <footer id="bot">
   <div id="contact">
     <abbr title="Copyright">&copy;</abbr> 2023
-    <a rel="nofollow noopener" href="mailto:aomanu+blog@gmail.com"
+    <a rel="nofollow noopener" href="mailto:{{ $authorEmail }}"
       >Manuel Sanchez Pinar</a
     >
     • articles under

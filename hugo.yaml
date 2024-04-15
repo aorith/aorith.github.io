@@ -11,7 +11,9 @@ taxonomies:
   tag: tags
 
 params:
-  author: "Manuel Sanchez Pinar"
+  author:
+    name: "Manuel Sanchez Pinar"
+    email: "aomanu+blog@gmail.com"
   sitename: "aorith's site"
   description: "Tech-related posts from a DevOps engineer."
   keywords: [Blog]
@@ -28,15 +30,15 @@ markup:
 
 menu:
   main:
-    - name: Posts
-      url: /posts/
-      weight: 1
-    - name: Tags
-      url: /tags/
-      weight: 10
-    # - name: Resume
-    #   url: /resume/
-    #   weight: 20
-    - name: About
-      url: /about/
-      weight: 30
+  - name: Posts
+    url: /posts/
+    weight: 1
+  - name: Tags
+    url: /tags/
+    weight: 10
+  # - name: Resume
+  #   url: /resume/
+  #   weight: 20
+  - name: About
+    url: /about/
+    weight: 30
