@@ -5,7 +5,7 @@ PATH = $(shell nix develop --command bash -c 'echo $$PATH')
 PHONY: serve
 serve:
 	rm -rf public
-	hugo server --buildDrafts
+	hugo server --buildDrafts --bind 0.0.0.0
 
 PHONY: new
 new:

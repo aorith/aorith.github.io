@@ -34,6 +34,7 @@
     animation: 1s blink infinite;
     opacity: 1;
   }
+
   & .logo__cursor {
     margin-right: var(--space-0);
     font-weight: 700;
@@ -56,9 +57,11 @@
 #top nav a {
   text-decoration: none;
   color: var(--fg-0);
+
   &:before {
     content: " ";
   }
+
   &:after {
     content: " ";
   }
@@ -73,8 +76,8 @@
     color: var(--bg-0);
   }
 
-  &:visibled:focus,
-  &:visibled:hover {
+  &:visited:focus,
+  &:visited:hover {
     background-color: var(--fg-0);
     color: var(--bg-0);
   }
@@ -82,10 +85,11 @@
 
 #top nav a.active {
   &:before {
-    content: "|";
+    content: ">";
   }
+
   &:after {
-    content: "|";
+    content: "<";
   }
 }
 
@@ -110,8 +114,8 @@ div.social a {
     background-color: var(--bg-0);
   }
 
-  &:visibled:focus,
-  &:visibled:hover {
+  &:visited:focus,
+  &:visited:hover {
     color: var(--fg-0);
     background-color: var(--bg-0);
   }
@@ -150,6 +154,7 @@ abbr {
     text-align: center;
     gap: var(--space-0);
   }
+
   #top nav ul li {
     display: inline-block;
   }
