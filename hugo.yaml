@@ -1,6 +1,6 @@
 baseURL: "https://aorith.github.io"
 languageCode: "en"
-title: "aorith's site"
+title: "~aorith"
 author: "Manuel Sanchez Pinar"
 theme: "mine"
 googleAnalytics: G-PWBW9ZCFSD
@@ -14,7 +14,7 @@ params:
   author:
     name: "Manuel Sanchez Pinar"
     email: "aomanu+blog@gmail.com"
-  sitename: "aorith's site"
+  sitename: "~aorith"
   description: "Tech-related posts from a DevOps engineer."
   keywords: [Blog]
   dateform: "January 2, 2006"

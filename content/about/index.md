@@ -10,15 +10,24 @@ onlycontent: true
 <div>
 {{< /rawhtml >}}
 
-Hola! I'm Manuel, a DevOps engineer from Spain.
+#### Hola! I'm Manuel, a DevOps engineer from Spain
 
-Things that I enjoy:
+{{<rawhtml>}}
+<br>
+{{</rawhtml>}}
 
-- Walking through natural settings: along the beach, on hiking trails, or in environments that allow me to disconnect.
-- Playing games like [Hollow Knight](https://en.wikipedia.org/wiki/Hollow_Knight), [Blasphemous](<https://en.wikipedia.org/wiki/Blasphemous_(video_game)>) and [Age of Empires II](https://en.wikipedia.org/wiki/Age_of_Empires_II).
-- Python, Go, [Nix/NixOS](https://nixos.org/), [Neovim](https://github.com/aorith/neovim-flake), tweaking my [dotfiles](https://github.com/aorith/dotfiles) and contributing to opensource when time and skill is on my side.
+Sometimes, I just want to share about the stuff I do.  
+That is the purpose of this blog.
 
-That's all I wanted to tell you :) if you want to reach me, you can do it using the social links below.
+I started out as a pure Linux sysadmin, but over time, I’ve grown to love crafting things of my own.
+
+Here are some of the things I enjoy:
+
+- Python, Go, [Nix/NixOS](https://nixos.org/), [Neovim](https://github.com/aorith/neovim-flake), tweaking my [dotfiles](https://github.com/aorith/dotfiles) and contributing to opensource when time and skill is on my side
+- Playing games like [Hollow Knight](https://en.wikipedia.org/wiki/Hollow_Knight), [Blasphemous](<https://en.wikipedia.org/wiki/Blasphemous_(video_game)>) and [Age of Empires II](https://en.wikipedia.org/wiki/Age_of_Empires_II)
+- Spending time outdoors with my family and friends
+
+That is all I wanted to tell you :) if you want to reach me, you can do it by using the social links in the footer.
 {{< rawhtml >}}
 
 </div>

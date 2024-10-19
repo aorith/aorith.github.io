@@ -60,15 +60,11 @@
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .RelPermalink $title | safeHTML }}
 {{ end -}}
 
-{{ $css_bundle := slice
-    (resources.Get "css/vars.css")
-    (resources.Get "css/main.css")
-    (resources.Get "css/top-bot.css")
-    (resources.Get "css/dark.css")
-    (resources.Get "css/light.css")
-  | resources.Concat "css/custom.css" | minify | fingerprint }}
-
-<link type="text/css" rel="stylesheet" href="{{ $css_bundle.RelPermalink }}">
+{{ $sass_opts := dict "transpiler" "libsass" "targetPath" "css/style.css" }}
+{{ $all_css := resources.Match "sass/*.scss" }}
+{{ with $all_css | resources.Concat "css/all.css" | toCSS $sass_opts | minify | fingerprint }}
+<link type="text/css" rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+{{ end }}
 
 <link type="text/css" rel="stylesheet" href="/fontawesome/css/fontawesome.min.css">
 <link type="text/css" rel="stylesheet" href="/fontawesome/css/brands.min.css">
