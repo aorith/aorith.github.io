@@ -91,6 +91,9 @@ Experience
 
 Certifications & Education
 
+2024
+    CKA: Certified Kubernetes Administrator
+
 2023
     AWS Certified SysOps Administrator – Associate
 
