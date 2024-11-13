@@ -1,27 +1,23 @@
-SHELL := bash
+SHELL := nix develop --command bash
 
-PATH = $(shell nix develop --command bash -c 'echo $$PATH')
-
-PHONY: serve
 serve:
-	rm -rf public
+	rm -rf public && \
 	hugo server --buildDrafts --bind 0.0.0.0
 
-PHONY: new
 new:
 	bash new.sh
 
-PHONY: generate-chroma-styles
+# https://xyproto.github.io/splash/docs/all.html
 generate-chroma-styles:
-	# https://xyproto.github.io/splash/docs/all.html
-	echo '@media (prefers-color-scheme: light) {' > ./themes/mine/assets/css/light.css
-	hugo gen chromastyles --style=modus-operandi >> ./themes/mine/assets/css/light.css
-	echo '}' >> ./themes/mine/assets/css/light.css
-	echo
-	echo '@media (prefers-color-scheme: dark) {' > ./themes/mine/assets/css/dark.css
-	hugo gen chromastyles --style=modus-vivendi >> ./themes/mine/assets/css/dark.css
-	echo '}' >> ./themes/mine/assets/css/dark.css
-	echo
-	prettier ./themes/mine/assets/css/light.css --write
-	prettier ./themes/mine/assets/css/dark.css --write
+	export light_theme="./themes/mine/assets/sass/light.scss" && \
+	export dark_theme="./themes/mine/assets/sass/dark.scss" && \
+	echo '@media (prefers-color-scheme: light) {' > "$$light_theme" && \
+	hugo gen chromastyles --style=modus-operandi >> "$$light_theme" && \
+	echo '}' >> "$$light_theme" && \
+	echo '@media (prefers-color-scheme: dark) {' > "$$dark_theme" && \
+	hugo gen chromastyles --style=modus-vivendi >> "$$dark_theme" && \
+	echo '}' >> "$$dark_theme" && \
+	prettier "$$light_theme" --write && \
+	prettier "$$dark_theme" --write
 
+PHONY: serve new generate-chroma-styles
