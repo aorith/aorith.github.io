@@ -81,7 +81,8 @@ pre {
   padding-left: var(--space-2);
   white-space: pre-wrap;
   white-space-collapse: preserve;
-  overflow-x: auto;
+  overflow: auto;
+  max-height: 45vh;
   overflow-wrap: break-word;
   word-break: normal;
   word-wrap: inherit;
@@ -109,7 +110,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-family);
+  font-family: var(--font-family-headers);
   line-height: var(--heading-line-height);
   padding: 0;
   margin-bottom: var(--space-0);

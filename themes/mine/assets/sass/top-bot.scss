@@ -12,6 +12,8 @@
 
 #top nav ul li a {
   padding: var(--space-0);
+  padding-top: calc(var(--space-0) * 0.6);
+  padding-bottom: calc(var(--space-0) * 0.6);
 }
 
 .logo {
@@ -58,14 +60,6 @@
   text-decoration: none;
   color: var(--fg-0);
 
-  &:before {
-    content: " ";
-  }
-
-  &:after {
-    content: " ";
-  }
-
   &:visited {
     color: var(--fg-0);
   }
@@ -84,13 +78,8 @@
 }
 
 #top nav a.active {
-  &:before {
-    content: ">";
-  }
-
-  &:after {
-    content: "<";
-  }
+  background-color: var(--warm);
+  color: var(--bg-0);
 }
 
 div.social {

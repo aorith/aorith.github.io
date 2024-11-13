@@ -81,8 +81,11 @@
   --font-family: "Noto Sans", sans-serif;
   --font-family-mono: Hack, Consolas, Menlo, "DejaVu Sans Mono",
     "Source Code Pro", monospace;
-  --base-font-size: 18px;
-  --code-font-size: 16px;
+  --font-family-headers: -apple-system, BlinkMacSystemFont, "Segoe UI Adjusted",
+    "Segoe UI", "Liberation Sans", sans-serif;
+
+  --base-font-size: 17px;
+  --code-font-size: 15px;
 
   --line-height: 1.44;
   --heading-line-height: 1.2;
