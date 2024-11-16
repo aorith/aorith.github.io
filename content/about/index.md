@@ -17,17 +17,19 @@ onlycontent: true
 {{</rawhtml>}}
 
 Sometimes, I just want to share about the stuff I do.  
-That is the purpose of this blog.
+That's the purpose of this blog.
 
-I started out as a pure Linux sysadmin, but over time, I’ve grown to love crafting things of my own.
+I started out as a pure Linux sysadmin, but over time, I’ve grown to enjoy
+building things from scratch, implementing automation solutions, and exploring
+new technologies.
 
-Here are some of the things I enjoy:
+Here are a few things that I enjoy:
 
 - Python, Go, [Nix/NixOS](https://nixos.org/), [Neovim](https://github.com/aorith/neovim-flake), tweaking my [dotfiles](https://github.com/aorith/dotfiles) and contributing to opensource when time and skill is on my side
 - Playing games like [Hollow Knight](https://en.wikipedia.org/wiki/Hollow_Knight), [Blasphemous](<https://en.wikipedia.org/wiki/Blasphemous_(video_game)>) and [Age of Empires II](https://en.wikipedia.org/wiki/Age_of_Empires_II)
 - Spending time outdoors with my family and friends
 
-That is all I wanted to tell you :) if you want to reach me, you can do it by using the social links in the footer.
+That's all I wanted to tell you :) if you want to reach me, you can do it by using the social links in the footer.
 {{< rawhtml >}}
 
 </div>
