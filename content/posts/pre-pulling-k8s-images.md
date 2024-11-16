@@ -133,6 +133,7 @@ spec:
       initContainers:
         - name: pre-pull
           image: busybox:latest
+          imagePullPolicy: Always
           command: ["/usr/bin/env"]
           args: ["true"]
 
