@@ -52,6 +52,7 @@
 }
 
 #top {
+  background-color: var(--bg-2);
   text-align: center;
   font-size: var(--base-font-size);
 }
@@ -120,11 +121,10 @@ abbr {
 
 #top,
 #bot {
-  background-color: var(--bg-2);
   margin: 0;
   padding: 0;
-  padding-top: var(--vertical-0);
-  padding-bottom: var(--vertical-0);
+  padding-top: calc(var(--vertical-0) * 0.8);
+  padding-bottom: calc(var(--vertical-0) * 0.8);
   width: 100%;
 }
 
@@ -150,7 +150,7 @@ abbr {
 
   #top,
   #bot {
-    padding-top: calc(var(--vertical-0) * 0.5);
-    padding-bottom: calc(var(--vertical-0) * 0.5);
+    padding-top: calc(var(--vertical-0) * 0.4);
+    padding-bottom: calc(var(--vertical-0) * 0.4);
   }
 }
