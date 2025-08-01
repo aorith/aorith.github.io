@@ -5,7 +5,7 @@
 
     <section class="posts_listing">
         <h5>Latest updates</h5>
-        {{ range first 3 (where site.RegularPages "Type" "posts").ByDate.Reverse }}
+        {{ range first 5 (where site.RegularPages "Type" "posts").ByDate.Reverse }}
             {{ partial "list-item.html" . }}
         {{ end }}
     </section>
