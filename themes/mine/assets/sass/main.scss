@@ -13,26 +13,6 @@ body {
   margin: 0;
 }
 
-@view-transition {
-  navigation: auto;
-}
-
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation: page-turn 0.2s ease-in both;
-}
-
-@keyframes page-turn {
-  0% {
-    opacity: 0;
-    transform: rotateY(50deg);
-  }
-  100% {
-    opacity: 1;
-    transform: rotateY(0deg);
-  }
-}
-
 article,
 footer,
 header,

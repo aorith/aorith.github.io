@@ -20,4 +20,4 @@ generate-chroma-styles:
 	prettier "$$light_theme" --write && \
 	prettier "$$dark_theme" --write
 
-PHONY: serve new generate-chroma-styles
+.PHONY: serve new generate-chroma-styles

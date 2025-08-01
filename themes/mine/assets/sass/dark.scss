@@ -1,4 +1,6 @@
 @media (prefers-color-scheme: dark) {
+  /* Generated using: hugo gen chromastyles --style=modus-vivendi */
+
   /* Background */
   .bg {
     color: #fff;
@@ -98,13 +100,6 @@
   /* NameAttribute */
   .chroma .na {
   }
-  /* NameBuiltin */
-  .chroma .nb {
-    color: #f78fe7;
-  }
-  /* NameBuiltinPseudo */
-  .chroma .bp {
-  }
   /* NameClass */
   .chroma .nc {
   }
@@ -119,13 +114,6 @@
   }
   /* NameException */
   .chroma .ne {
-  }
-  /* NameFunction */
-  .chroma .nf {
-    color: #feacd0;
-  }
-  /* NameFunctionMagic */
-  .chroma .fm {
   }
   /* NameLabel */
   .chroma .nl {
@@ -142,21 +130,41 @@
   /* NameTag */
   .chroma .nt {
   }
+  /* NameBuiltin */
+  .chroma .nb {
+    color: #f78fe7;
+  }
+  /* NameBuiltinPseudo */
+  .chroma .bp {
+    color: #f78fe7;
+  }
   /* NameVariable */
   .chroma .nv {
     color: #00d3d0;
   }
   /* NameVariableClass */
   .chroma .vc {
+    color: #00d3d0;
   }
   /* NameVariableGlobal */
   .chroma .vg {
+    color: #00d3d0;
   }
   /* NameVariableInstance */
   .chroma .vi {
+    color: #00d3d0;
   }
   /* NameVariableMagic */
   .chroma .vm {
+    color: #00d3d0;
+  }
+  /* NameFunction */
+  .chroma .nf {
+    color: #feacd0;
+  }
+  /* NameFunctionMagic */
+  .chroma .fm {
+    color: #feacd0;
   }
   /* Literal */
   .chroma .l {
