@@ -6,7 +6,7 @@ tags:
 draft: false
 ---
 
-In the world of system administration and resource management, understanding how to set and test resource limits is crucial. Today, we'll delve into systemd, a vital component in many Linux distributions, and explore how to impose limits on resources like memory and CPU. We'll also walk through practical examples to test these limits effectively.
+Systemd implements powerful resource limit controls thanks to linux cgroups. In this short post I explain how to configure and test those limits.
 
 ## Setting Resource Limits
 
