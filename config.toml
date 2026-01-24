@@ -1,0 +1,37 @@
+title = "~aorith"
+description = "Tech-related posts from a sysadm engineer."
+base_url = "/"
+author = "Manuel Sanchez"
+
+generate_feeds = true
+feed_filenames = ["atom.xml", "rss.xml"]
+
+compile_sass = false
+build_search_index = false
+
+taxonomies = [{ name = "tags", feed = true }]
+
+[markdown]
+
+[markdown.highlighting]
+light_theme = "github-light"
+dark_theme = "catppuccin-macchiato"
+
+[extra]
+date_format = "%d %B, %Y"
+
+[extra.table_of_contents]
+show = true
+max_level = 2
+
+[[extra.main_menu]]
+name = "home"
+url = "@/_index.md"
+
+[[extra.main_menu]]
+name = "blog"
+url = "@/blog/_index.md"
+
+[[extra.main_menu]]
+name = "feeds"
+url = "@/feeds.md"

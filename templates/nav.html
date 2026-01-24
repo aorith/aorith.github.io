@@ -1,0 +1,10 @@
+{%- if config.extra.main_menu %}
+  {%- for item in config.extra.main_menu %}
+    {%- set title = item.name %}
+    {%- if item.url is matching("https?://") %}
+      <a href="{{ item.url }}">{{ title }}</a>
+    {%- else %}
+      <a href="{{ get_url(path=item.url )}}">{{ title }}</a>
+    {%- endif %}
+  {%- endfor %}
+{%- endif -%}
