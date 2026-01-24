@@ -245,7 +245,7 @@ details nav ul li a {
 }
 
 video {
-  max-width: 800px;
+  max-width: 100%;
 }
 
 abbr {
