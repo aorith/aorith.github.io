@@ -37,19 +37,19 @@ const GA_ID = document.documentElement.getAttribute("ga-id");
             b = eps + (1-2*eps)*parseInt(m[1].substr(4,2),16);
         }
 
-        let worker = new Worker('colorpicker/worker.js');    
+        let worker = new Worker(worker.js');    
         worker.onmessage = function(e) 
         {
             display_results(e.data);
         };
 
-        let worker_hsluv = new Worker('colorpicker/workerhsluv.js');    
+        let worker_hsluv = new Worker(workerhsluv.js');    
         worker_hsluv.onmessage = function(e) 
         {
             display_results_hsluv(e.data);
         };
 
-        let worker_okhsl = new Worker('colorpicker/workerokhsl.js');    
+        let worker_okhsl = new Worker(workerokhsl.js');    
         worker_okhsl.onmessage = function(e) 
         {
             display_results_okhsl(e.data);
