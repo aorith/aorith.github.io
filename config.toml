@@ -18,7 +18,6 @@ light_theme = "github-light"
 dark_theme = "catppuccin-macchiato"
 
 [extra]
-date_format = "%d %B, %Y"
 
 [extra.table_of_contents]
 show = true
