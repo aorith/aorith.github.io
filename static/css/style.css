@@ -4,6 +4,7 @@
   --font-text: "Noto Sans", sans-serif;
   --font-scale: 1.2em;
   --background-color: #fef5e9;
+  --background-image: radial-gradient(circle, #ede4d8 1px, transparent 1px);
   --heading-color: #37171b;
   --text-color: #222222;
   --link-color: #3273dc;
@@ -16,6 +17,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background-color: #1c1c26;
+    --background-image: radial-gradient(circle, #1f2229 1px, transparent 1px);
     --heading-color: #eeeeee;
     --text-color: #dddddd;
     --link-color: #8cc2dd;
@@ -34,11 +36,23 @@ body {
   padding: 20px;
   max-width: var(--width);
   text-align: left;
-  background-color: var(--background-color);
   word-wrap: break-word;
   overflow-wrap: break-word;
   line-height: 1.5;
   color: var(--text-color);
+  background-color: var(--background-color);
+  background-image: var(--background-image);
+  animation: gridPulse 60s infinite alternate;
+}
+
+@keyframes gridPulse {
+  from {
+    background-size: 7px 7px;
+  }
+
+  to {
+    background-size: 12px 12px;
+  }
 }
 
 h1,
